@@ -23,6 +23,14 @@ export const fetchPlayersError = (error) => {
     }
 }
 
+export const POST_PLAYER = 'POST_PLAYER';
+export const postPlayer = (player) => {
+    return {
+        type: POST_PLAYER,
+        player
+    }
+}
+
 export const fetchPlayers = () => dispatch => {
     return fetch(`${API_BASE_URL}/api/players`)
     .then(res => {

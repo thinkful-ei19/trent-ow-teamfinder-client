@@ -1,7 +1,8 @@
 import {
     FETCH_PLAYERS_REQUEST,
     FETCH_PLAYERS_ERROR,
-    FETCH_PLAYERS_SUCCESS
+    FETCH_PLAYERS_SUCCESS,
+    POST_PLAYER
 } from '../actions/players';
 
 const initialState = {
@@ -31,6 +32,12 @@ export const playersReducer = (state = initialState, action) => {
             ...state,
             loading: false,
             error: action.error
+        }
+    }
+    else if (action.type === POST_PLAYER ){
+        return {
+            ...state,
+            players: [...state.players, action.player]
         }
     }
     return state

@@ -9,7 +9,7 @@ class PlayerTab extends React.Component {
 
     render() {
         const players = this.props.players.map(player => {
-            return <li>{player.username} {player.skillRating}</li>
+            return <li>{player.userName} {player.skillRating}  {player.roles}  {player.heroPool}</li>
         })
         return (<ul>
                     {players}
