@@ -10,7 +10,7 @@ const initialState = {
     error: null
 }
 
-export const cheeseReducer = (state = initialState, action) => {
+export const playersReducer = (state = initialState, action) => {
     if (action.type === FETCH_PLAYERS_REQUEST ){
         return {
             ...state,
