@@ -7,7 +7,6 @@ import {postPlayer} from '../actions/players';
 
 function onSubmit(props) {
     return props.handleSubmit(values => {
-        console.log(values);
         return fetch(`${API_BASE_URL}/api/players`, {
             method: 'POST',
             headers: {
@@ -38,7 +37,7 @@ function onSubmit(props) {
             props.reset()
             return res.json();
         })
-        .then((data) => props.dispatch(postPlayer(data)))
+        .then((data) =>props.dispatch(postPlayer(data)))
         // .then((data) => console.log(data))
         .catch(err => {
             const {reason, message, location} = err;

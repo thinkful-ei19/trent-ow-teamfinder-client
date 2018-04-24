@@ -23,14 +23,6 @@ export const fetchPlayersError = (error) => {
     }
 }
 
-export const POST_PLAYER = 'POST_PLAYER';
-export const postPlayer = (player) => {
-    return {
-        type: POST_PLAYER,
-        player
-    }
-}
-
 export const fetchPlayers = () => dispatch => {
     return fetch(`${API_BASE_URL}/api/players`)
     .then(res => {
@@ -40,4 +32,24 @@ export const fetchPlayers = () => dispatch => {
     .then(data => dispatch(fetchPlayersSuccess(data)))
     .catch(err => dispatch(fetchPlayersError(err)));
 };
+
+export const POST_PLAYER = 'POST_PLAYER';
+export const postPlayer = (player) => {
+    return {
+        type: POST_PLAYER,
+        player
+    }
+}
+
+export const TOGGLE_EXPAND_CARD = 'TOGGLE_EXPAND_CARD';
+export const toggleExpandCard = (player) => {
+    return {
+        type: TOGGLE_EXPAND_CARD,
+        player
+    }
+}
+
+
+
+
 

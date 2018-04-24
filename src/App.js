@@ -1,5 +1,4 @@
 import React, { Component } from 'react';
-import './App.css';
 import AddUserForm from './components/add-user-form';
 import PlayerTab from './components/player-tab';
 

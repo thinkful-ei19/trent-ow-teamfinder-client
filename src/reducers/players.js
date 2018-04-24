@@ -2,13 +2,15 @@ import {
     FETCH_PLAYERS_REQUEST,
     FETCH_PLAYERS_ERROR,
     FETCH_PLAYERS_SUCCESS,
-    POST_PLAYER
+    POST_PLAYER,
+    TOGGLE_EXPAND_CARD
 } from '../actions/players';
 
 const initialState = {
     players: [],
     loading: false,
-    error: null
+    error: null,
+    currentExpanded: false
 }
 
 export const playersReducer = (state = initialState, action) => {
@@ -39,6 +41,20 @@ export const playersReducer = (state = initialState, action) => {
             ...state,
             players: [...state.players, action.player]
         }
+    }
+    else if (action.type === TOGGLE_EXPAND_CARD ){
+        if (!state.currentExpanded) {
+          return {
+            ...state,
+            currentExpanded: action.player
+          }
+        } else {
+            return {
+              ...state,
+              currentExpanded: false
+            }
+        }
+        
     }
     return state
 }

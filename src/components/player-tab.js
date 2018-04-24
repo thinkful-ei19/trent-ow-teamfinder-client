@@ -1,16 +1,29 @@
 import React from 'react';
-import {fetchPlayers} from '../actions/players';
+import {fetchPlayers, toggleExpandCard} from '../actions/players';
 import {connect} from 'react-redux';
+
+import PlayerCard from './player-card';
+import ExpandedPlayerCard from './expanded-player-card';
 
 class PlayerTab extends React.Component {
     componentDidMount() {
         this.props.dispatch(fetchPlayers());
     }
+    onClick(props) {
+      const player = this.props.players.find(player => player.id === props.id );
+      this.props.dispatch(toggleExpandCard(player));
+    }
 
     render() {
-        const players = this.props.players.map(player => {
-            return <li>{player.userName} {player.skillRating}  {player.roles}  {player.heroPool}</li>
+        let players;
+        if (this.props.currentExpanded){
+          players = <ExpandedPlayerCard onClick={(props) => this.onClick(props)} userName={this.props.currentExpanded.userName} skillRating={this.props.currentExpanded.skillRating}  roles={this.props.currentExpanded.roles}/>
+        } else {
+          players = this.props.players.map(player => {
+            return <PlayerCard onClick={(props) => this.onClick(props)} id={player.id} userName={player.userName} skillRating={player.skillRating}  roles={player.roles}/>
         })
+        }
+        
         return (<ul>
                     {players}
                 </ul>);
@@ -19,7 +32,8 @@ class PlayerTab extends React.Component {
 
 const mapStateToProps = state => {
     return {
-        players: state.players.players
+        players: state.players.players,
+        currentExpanded: state.players.currentExpanded
     }
 } 
 
