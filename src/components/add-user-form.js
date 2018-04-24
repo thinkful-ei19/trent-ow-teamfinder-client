@@ -7,8 +7,20 @@ import {postPlayer} from '../actions/players';
 
 
 class AddUserForm extends React.Component {
+    convertFormValues(valueObj) {
+      const roles = roleList.filter(role => valueObj[role]);
+      const heroPool = heroList.filter(hero => valueObj[hero]);
+      return {
+          userName : valueObj.userName,
+          skillRating: valueObj.skillRating,
+          roles,
+          heroPool
+      }
+    }
+
     onSubmit() {
         return this.props.handleSubmit(values => {
+            const filteredValues= this.convertFormValues(values);
             return fetch(`${API_BASE_URL}/api/players`, {
                 method: 'POST',
                 headers: {
@@ -16,7 +28,7 @@ class AddUserForm extends React.Component {
                   'Content-Type': 'application/json',
                 },
                 body: JSON.stringify({
-                  players: values
+                  players: filteredValues
                 })
               })
               .then(res => {
