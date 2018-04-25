@@ -1,35 +1,20 @@
 import React from 'react';
 import {reduxForm, Field, SubmissionError} from 'redux-form';
 
-import Checkbox from './checkbox';
-import {API_BASE_URL, heroList, roleList} from '../config';
+import {API_BASE_URL} from '../config';
 import {postPlayer} from '../actions/players';
 
-
-class AddUserForm extends React.Component {
-    convertFormValues(valueObj) {
-      const roles = roleList.filter(role => valueObj[role]);
-      const heroPool = heroList.filter(hero => valueObj[hero]);
-      return {
-          userName : valueObj.userName,
-          skillRating: valueObj.skillRating,
-          password: valueObj.password,
-          roles,
-          heroPool
-      }
-    }
-
+class Login extends React.Component {
     onSubmit() {
         return this.props.handleSubmit(values => {
-            const filteredValues= this.convertFormValues(values);
-            return fetch(`${API_BASE_URL}/api/players`, {
+            return fetch(`${API_BASE_URL}/api/login/players`, {
                 method: 'POST',
                 headers: {
                   'Accept': 'application/json',
                   'Content-Type': 'application/json',
                 },
                 body: JSON.stringify({
-                  players: filteredValues
+                  players: values
                 })
               })
               .then(res => {
@@ -74,31 +59,16 @@ class AddUserForm extends React.Component {
         })
     }
 
+
     render () {
-        const heroes = heroList.map((hero,index) => {
-            return (<Checkbox key={index} value={hero}/>);
-        })
-        const roles = roleList.map((role,index) => {
-            return (<Checkbox key={index} value={role}/>);
-        })
         return (
-            <form onSubmit={this.onSubmit()}>
+            <form>
                 <label htmlFor='userName'>username: </label>
                 <Field component='input' type='text' name='userName'/>
                 <label htmlFor='password'>password: </label>
                 <Field component='input' type='text' name='password'/>
-                <label htmlFor='skill-rating'>SR: </label>
-                <Field component='input' type='number' name='skillRating'/><br/>
-                <label>Roles: </label>
-                {roles}
-                <label>Heroes: </label>
-                {heroes}
-                <button>submit</button>
             </form>
         );
-    } 
+    }
+    
 }
-
-export default reduxForm({
-    form: 'addPlayer'
-})(AddUserForm);

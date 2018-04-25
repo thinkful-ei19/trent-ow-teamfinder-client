@@ -26,8 +26,11 @@ export const fetchPlayersError = (error) => {
 export const fetchPlayers = () => dispatch => {
     return fetch(`${API_BASE_URL}/api/players`)
     .then(res => {
-        fetchPlayersRequest();
-        return res.json();
+      if (!res.ok) {
+        return Promise.reject(res.statusText);
+      }
+      fetchPlayersRequest();
+      return res.json();
     })
     .then(data => dispatch(fetchPlayersSuccess(data)))
     .catch(err => dispatch(fetchPlayersError(err)));
