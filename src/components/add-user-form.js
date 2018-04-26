@@ -1,9 +1,12 @@
 import React from 'react';
 import {reduxForm, Field, SubmissionError} from 'redux-form';
+import {connect} from 'react-redux';
+import {withRouter} from 'react-router-dom';
 
 import Checkbox from './checkbox';
 import {API_BASE_URL, heroList, roleList} from '../config';
-import {postPlayer} from '../actions/players';
+import {postPlayer, fetchPlayers} from '../actions/players';
+import {login} from '../actions/auth';
 import {normalizeResponseErrors} from '../actions/utils';
 
 
@@ -39,7 +42,9 @@ class AddUserForm extends React.Component {
                 return res.json();
               })
             .then((data) =>this.props.dispatch(postPlayer(data)))
-            // .then(() => console.log(data))
+            .then(() => this.props.dispatch(login(filteredValues.username, filteredValues.password)))
+            .then(() => this.props.dispatch(fetchPlayers(this.props.authToken)))
+            .then(() => this.props.history.push('/players'))
             .catch(err => {
                 const {reason, message, location} = err;
                 if (reason === 'ValidationError') {
@@ -85,6 +90,13 @@ class AddUserForm extends React.Component {
     } 
 }
 
-export default reduxForm({
-    form: 'addPlayer'
-})(AddUserForm);
+const mapStateToProps = state => {
+    return {
+      authToken: state.auth.authToken
+    }
+  }
+  
+export default withRouter(connect(mapStateToProps)(reduxForm({ 
+  form: 'addPlayer',
+})(AddUserForm)));
+
