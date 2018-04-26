@@ -1,7 +1,7 @@
 import React from 'react';
 import {reduxForm, Field, SubmissionError} from 'redux-form';
 import {connect} from 'react-redux';
-import { withRouter} from 'react-router-dom';
+import {Link, withRouter} from 'react-router-dom';
 
 import {fetchPlayers} from '../actions/players';
 import { login } from '../actions/auth';
@@ -35,7 +35,8 @@ class Login extends React.Component {
 
     render () {
         return (
-            <form onSubmit={this.onSubmit()}>
+            <div>
+              <form onSubmit={this.onSubmit()}>
                 Log in:<br/>
                 <label htmlFor='username'>username: </label>
                 <Field component='input' type='text' name='username'/>
@@ -43,6 +44,9 @@ class Login extends React.Component {
                 <Field component='input' type='text' name='password'/>
                 <button>Login</button>
             </form>
+              <h3>Don't have an Account? <Link to='/register'>Register</Link></h3>
+            </div>
+            
         );
     }
     
