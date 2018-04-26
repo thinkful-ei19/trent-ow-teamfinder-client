@@ -44,7 +44,7 @@ class AddUserForm extends React.Component {
             .then((data) =>this.props.dispatch(postPlayer(data)))
             .then(() => this.props.dispatch(login(filteredValues.username, filteredValues.password)))
             .then(() => this.props.dispatch(fetchPlayers(this.props.authToken)))
-            .then(() => this.props.history.push('/players'))
+            .then(() => this.props.history.push('/auth/players'))
             .catch(err => {
                 const {reason, message, location} = err;
                 if (reason === 'ValidationError') {

@@ -11,7 +11,7 @@ class Login extends React.Component {
         return this.props.handleSubmit(values => {
           return this.props.dispatch(login(values.username, values.password))
             .then(() => this.props.dispatch(fetchPlayers(this.props.authToken)))
-            .then(() => this.props.history.push('/players'))
+            .then(() => this.props.history.push('/auth/players'))
             .catch(err => {
                 const {reason, message, location} = err;
                 if (reason === 'ValidationError') {
