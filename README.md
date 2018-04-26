@@ -36,6 +36,7 @@ The main goal of Overwatch Team finder is to create a small community of players
 * Dividing players amongst different regions
 * A reputation system amongst players
 * Adding a teams tab, to allow users to create a team card and allow other players to send a request to join
+* Using a webscraper to grab a players Skill rating that would be dynamic
 
 
 This project was bootstrapped with [Create React App](https://github.com/facebookincubator/create-react-app).
