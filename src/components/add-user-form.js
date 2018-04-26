@@ -12,7 +12,7 @@ class AddUserForm extends React.Component {
       const roles = roleList.filter(role => valueObj[role]);
       const heroPool = heroList.filter(hero => valueObj[hero]);
       return {
-          userName : valueObj.userName,
+          username : valueObj.username,
           skillRating: valueObj.skillRating,
           password: valueObj.password,
           roles,
@@ -39,7 +39,7 @@ class AddUserForm extends React.Component {
                 return res.json();
               })
             .then((data) =>this.props.dispatch(postPlayer(data)))
-            // .then((data) => console.log(data))
+            // .then(() => console.log(data))
             .catch(err => {
                 const {reason, message, location} = err;
                 if (reason === 'ValidationError') {
@@ -69,8 +69,8 @@ class AddUserForm extends React.Component {
         })
         return (
             <form onSubmit={this.onSubmit()}>
-                <label htmlFor='userName'>username: </label>
-                <Field component='input' type='text' name='userName'/>
+                <label htmlFor='username'>username: </label>
+                <Field component='input' type='text' name='username'/>
                 <label htmlFor='password'>password: </label>
                 <Field component='input' type='text' name='password'/>
                 <label htmlFor='skill-rating'>SR: </label>

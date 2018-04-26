@@ -32,6 +32,7 @@ The main goal of Overwatch Team finder is to create a small community of players
 ## Ambitious Extensions of MVP
 
 * OAuth through Blizzard (also adding google login)
+* Build in app forgot password link
 * Dividing players amongst different regions
 * A reputation system amongst players
 * Adding a teams tab, to allow users to create a team card and allow other players to send a request to join
