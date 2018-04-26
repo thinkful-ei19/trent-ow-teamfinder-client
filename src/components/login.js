@@ -43,7 +43,7 @@ class Login extends React.Component {
                 <label htmlFor='password'>password: </label>
                 <Field component='input' type='text' name='password'/>
                 <button>Login</button>
-            </form>
+              </form>
               <h3>Don't have an Account? <Link to='/register'>Register</Link></h3>
             </div>
             
