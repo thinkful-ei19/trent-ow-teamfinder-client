@@ -1,44 +1,16 @@
 import React from 'react';
 import {reduxForm, Field, SubmissionError} from 'redux-form';
+import {connect} from 'react-redux';
 
-import {API_BASE_URL} from '../config';
-import {postPlayer} from '../actions/players';
+import {fetchPlayers} from '../actions/players';
+import { login } from '../actions/auth';
 
 class Login extends React.Component {
     onSubmit() {
         return this.props.handleSubmit(values => {
-            return fetch(`${API_BASE_URL}/api/login/players`, {
-                method: 'POST',
-                headers: {
-                  'Accept': 'application/json',
-                  'Content-Type': 'application/json',
-                },
-                body: JSON.stringify({
-                  players: values
-                })
-              })
-              .then(res => {
-                if (!res.ok) {
-                    if (
-                        res.headers.has('content-type') &&
-                        res.headers
-                            .get('content-type')
-                            .startsWith('application/json')
-                    ) {
-                        // It's a nice JSON error returned by us, so decode it
-                        return res.json().then(err => Promise.reject(err));
-                    }
-                    // It's a less informative error returned by express
-                    return Promise.reject({
-                        code: res.status,
-                        message: res.statusText
-                    });
-                }
-                this.props.reset()
-                return res.json();
-            })
-            .then((data) =>this.props.dispatch(postPlayer(data)))
-            // .then((data) => console.log(data))
+          console.log(values);
+          return this.props.dispatch(login(values.username, values.password))
+            .then(() => this.props.dispatch(fetchPlayers(this.props.authToken)))
             .catch(err => {
                 const {reason, message, location} = err;
                 if (reason === 'ValidationError') {
@@ -55,20 +27,32 @@ class Login extends React.Component {
                     })
                 );
             });
-              
+                
         })
     }
 
 
     render () {
         return (
-            <form>
-                <label htmlFor='userName'>username: </label>
-                <Field component='input' type='text' name='userName'/>
+            <form onSubmit={this.onSubmit()}>
+                Log in:<br/>
+                <label htmlFor='username'>username: </label>
+                <Field component='input' type='text' name='username'/>
                 <label htmlFor='password'>password: </label>
                 <Field component='input' type='text' name='password'/>
+                <button>Login</button>
             </form>
         );
     }
     
 }
+
+const mapStateToProps = state => {
+  return {
+    authToken: state.auth.authToken
+  }
+}
+
+export default connect(mapStateToProps)(reduxForm({ 
+  form: 'login',
+})(Login));

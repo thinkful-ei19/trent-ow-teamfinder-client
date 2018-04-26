@@ -4,6 +4,7 @@ import {reduxForm, Field, SubmissionError} from 'redux-form';
 import Checkbox from './checkbox';
 import {API_BASE_URL, heroList, roleList} from '../config';
 import {postPlayer} from '../actions/players';
+import {normalizeResponseErrors} from '../actions/utils';
 
 
 class AddUserForm extends React.Component {
@@ -32,26 +33,11 @@ class AddUserForm extends React.Component {
                   players: filteredValues
                 })
               })
+              .then(res => normalizeResponseErrors(res))
               .then(res => {
-                if (!res.ok) {
-                    if (
-                        res.headers.has('content-type') &&
-                        res.headers
-                            .get('content-type')
-                            .startsWith('application/json')
-                    ) {
-                        // It's a nice JSON error returned by us, so decode it
-                        return res.json().then(err => Promise.reject(err));
-                    }
-                    // It's a less informative error returned by express
-                    return Promise.reject({
-                        code: res.status,
-                        message: res.statusText
-                    });
-                }
                 this.props.reset()
                 return res.json();
-            })
+              })
             .then((data) =>this.props.dispatch(postPlayer(data)))
             // .then((data) => console.log(data))
             .catch(err => {

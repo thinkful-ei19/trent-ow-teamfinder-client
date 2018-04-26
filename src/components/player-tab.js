@@ -1,14 +1,12 @@
 import React from 'react';
-import {fetchPlayers, toggleExpandCard} from '../actions/players';
+import {toggleExpandCard} from '../actions/players';
 import {connect} from 'react-redux';
 
 import PlayerCard from './player-card';
 import ExpandedPlayerCard from './expanded-player-card';
 
 class PlayerTab extends React.Component {
-    componentDidMount() {
-        this.props.dispatch(fetchPlayers());
-    }
+
     onClick(props) {
       const player = this.props.players.find(player => player.id === props.id );
       this.props.dispatch(toggleExpandCard(player));

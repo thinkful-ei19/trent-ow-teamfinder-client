@@ -23,8 +23,14 @@ export const fetchPlayersError = (error) => {
     }
 }
 
-export const fetchPlayers = () => dispatch => {
-    return fetch(`${API_BASE_URL}/api/players`)
+export const fetchPlayers = authToken => dispatch => {
+    return fetch(`${API_BASE_URL}/api/players`, {
+        method: 'GET',
+        headers: {
+            // Provide our auth token as credentials
+            Authorization: `Bearer ${authToken}`
+        }
+    })
     .then(res => {
       if (!res.ok) {
         return Promise.reject(res.statusText);
