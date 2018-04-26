@@ -11,9 +11,43 @@ export const setAuthToken = authToken => ({
     authToken
 });
 
-const storeAuthInfo = (authToken, dispatch) => {
+export const AUTH_REQUEST = 'AUTH_REQUEST';
+export const authRequest = () => ({
+    type: AUTH_REQUEST
+});
+
+export const AUTH_SUCCESS = 'AUTH_SUCCESS';
+export const authSuccess = currentUser => ({
+    type: AUTH_SUCCESS,
+    currentUser
+});
+
+export const AUTH_ERROR = 'AUTH_ERROR';
+export const authError = error => ({
+    type: AUTH_ERROR,
+    error
+});
+
+const fetchLoggedInUser = (username,authToken) => dispatch => {
+    return fetch(`${API_BASE_URL}/api/players/${username}`, {
+        method: 'GET',
+        headers: {
+            Authorization: `Bearer ${authToken}`
+        }
+    })
+    .then(res => {
+        if (!res.ok) {
+          return Promise.reject(res.statusText);
+        }
+        return res.json();
+      })
+    .then(user => dispatch(authSuccess(user)))
+}
+
+const storeAuthInfo = (authToken, dispatch, username) => {
     // const decodedToken = jwtDecode(authToken);
     dispatch(setAuthToken(authToken));
+    dispatch(fetchLoggedInUser(username));
 };
 
 export const login = (username, password) => dispatch => {
@@ -34,7 +68,7 @@ export const login = (username, password) => dispatch => {
             .then(res => normalizeResponseErrors(res))
             .then(res => res.json())
             .then(({authToken}) => {
-                storeAuthInfo(authToken, dispatch);
+                storeAuthInfo(authToken, dispatch, username);
                 
             })
             .catch(err => {
