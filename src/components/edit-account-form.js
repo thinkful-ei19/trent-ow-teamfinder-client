@@ -28,9 +28,6 @@ class EditAccountForm extends React.Component {
                 return res.json();
               })
             .then((data) =>this.props.dispatch(editAccount(data)))
-            // .then(() => this.props.dispatch(login(filteredValues.username, filteredValues.password)))
-            // .then(() => this.props.dispatch(fetchPlayers(this.props.authToken)))
-            // .then(() => this.props.history.push('/auth/players'))
             .catch(err => {
                 const {reason, message, location} = err;
                 if (reason === 'ValidationError') {

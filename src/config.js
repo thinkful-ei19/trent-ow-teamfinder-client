@@ -14,7 +14,7 @@ export const heroList = [
     	'Mei',
     	'Torbjörn',
     	'Widowmaker',
-    	'D.Va',
+    	'D Va',
     	'Orisa',
     	'Reinhardt',
     	'Roadhog',
