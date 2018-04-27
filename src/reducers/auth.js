@@ -37,6 +37,12 @@ export const authReducer = (state = initialState, action) => {
         currentUser: null,
         authToken: null
     }
-}
+  }
+  else if (action.type === EDIT_ACCOUNT){
+    return {
+        ...state,
+        currentUser: action.updatedPlayer
+    }
+  }
     return state;
 }

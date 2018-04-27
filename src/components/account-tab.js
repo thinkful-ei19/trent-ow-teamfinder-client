@@ -3,10 +3,27 @@ import {connect} from 'react-redux';
 import {withRouter} from 'react-router-dom';
 import './expanded-player-card.css';
 import AccountInfo from './account-info';
+import EditAccountForm from './edit-account-form';
 
 import {fetchDeletePlayer, toggleEditAccount} from '../actions/players';
 
 class AccountTab extends React.Component {
+    convertInitialValues(currentUser) { 
+        const roles = currentUser.roles.reduce((obj,role) => {
+            obj[role] = true;
+            return obj;
+        },{});
+        const heroes = currentUser.heroPool.reduce((obj,hero) => {
+            obj[hero] = true;
+            return obj;
+        },{});
+        return {
+          skillRating: currentUser.skillRating,
+          ...roles,
+          ...heroes
+        }
+    }
+
     deleteOnClick() {
       return this.props.dispatch(fetchDeletePlayer(this.props.authToken,this.props.currentUser.id))
         .then(() => this.props.history.push('/'));
@@ -17,18 +34,22 @@ class AccountTab extends React.Component {
     }
 
     render() {
-        let currentPlayer;
+        let currentDisplay;
         if (this.props.currentUser){
-          currentPlayer = (
-            <AccountInfo currentUser={this.props.currentUser} 
-                deleteOnClick={() => this.deleteOnClick()}
-                toggleEditOnClick={() => this.toggleEditOnClick()}/>
-          );
+          if (this.props.editAccountMode) {
+            currentDisplay = <EditAccountForm initialValues={this.convertInitialValues(this.props.currentUser)}/>
+          } else {
+            currentDisplay = (
+                <AccountInfo currentUser={this.props.currentUser} 
+                    deleteOnClick={() => this.deleteOnClick()}
+                    toggleEditOnClick={() => this.toggleEditOnClick()}/>
+              );
+          }
               
         }
         return (
             <div>
-                {currentPlayer}
+                {currentDisplay}
             </div>
             
         );
@@ -39,7 +60,8 @@ class AccountTab extends React.Component {
 const mapStateToProps = state => {
     return {
       authToken : state.auth.authToken,
-      currentUser: state.auth.currentUser
+      currentUser: state.auth.currentUser,
+      editAccountMode: state.players.editAccountMode
     }
 }
 

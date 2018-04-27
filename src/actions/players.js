@@ -89,6 +89,18 @@ export const toggleEditAccount = () => {
   };
 };
 
+export const EDIT_ACCOUNT = 'EDIT_ACCOUNT';
+export const editAccount = (updatedPlayer) => {
+  return {
+    type: EDIT_ACCOUNT,
+    updatedPlayer
+  };
+};
+
+
+
+
+
 
 
 

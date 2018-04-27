@@ -5,7 +5,8 @@ import {
     POST_PLAYER,
     TOGGLE_EXPAND_CARD,
     DELETE_PLAYER,
-    TOGGLE_EDIT_ACCOUNT_MODE
+    TOGGLE_EDIT_ACCOUNT_MODE,
+    EDIT_ACCOUNT
 } from '../actions/players';
 
 const initialState = {
@@ -76,6 +77,13 @@ export const playersReducer = (state = initialState, action) => {
               editAccountMode: false
               }
           }   
+    }
+    else if (action.type === EDIT_ACCOUNT){
+        return {
+            ...state,
+            players: [...state.players, action.updatedPlayer],
+            editAccountMode: false
+        }
     }
     return state
 }

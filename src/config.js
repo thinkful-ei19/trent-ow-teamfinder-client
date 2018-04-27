@@ -1,6 +1,6 @@
 export const API_BASE_URL = process.env.REACT_APP_API_BASE_URL || 'http://localhost:8080';
 export const heroList = [
-       'Doomfist',
+  'Doomfist',
     	'Genji',
     	'McCree',
     	'Pharah',
@@ -18,7 +18,7 @@ export const heroList = [
     	'Orisa',
     	'Reinhardt',
     	'Roadhog',
-        'Winston',
+  		'Winston',
     	'Zarya',
     	'Ana',
     	'Brigitte',
@@ -27,6 +27,6 @@ export const heroList = [
     	'Moira',
     	'Symmetra',
     	'Zenyatta'
-]
+];
 
 export const roleList = ['DPS', 'Flex', 'Tank', 'Support'];
