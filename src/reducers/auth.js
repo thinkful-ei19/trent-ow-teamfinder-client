@@ -1,4 +1,5 @@
 import {SET_AUTH_TOKEN, AUTH_REQUEST, AUTH_SUCCESS, AUTH_ERROR} from '../actions/auth';
+import { DELETE_PLAYER } from '../actions/players';
 
 const initialState = {
   authToken: null,
@@ -30,5 +31,12 @@ export const authReducer = (state = initialState, action) => {
           error: action.error
       });
   }
+  else if (action.type === DELETE_PLAYER ){
+    return {
+        ...state,
+        currentUser: null,
+        authToken: null
+    }
+}
     return state;
 }

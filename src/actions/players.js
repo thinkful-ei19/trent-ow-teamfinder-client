@@ -2,35 +2,35 @@ import {API_BASE_URL} from '../config';
 
 export const FETCH_PLAYERS_REQUEST = 'FETCH_PLAYERS_REQUEST';
 export const fetchPlayersRequest = () => {
-    return {
-        type: FETCH_PLAYERS_REQUEST
-    }
-}
+  return {
+    type: FETCH_PLAYERS_REQUEST
+  };
+};
 
 export const FETCH_PLAYERS_SUCCESS = 'FETCH_PLAYERS_SUCCESS';
 export const fetchPlayersSuccess = (players) => {
-    return {
-        type: FETCH_PLAYERS_SUCCESS,
-        players
-    }
-}
+  return {
+    type: FETCH_PLAYERS_SUCCESS,
+    players
+  };
+};
 
 export const FETCH_PLAYERS_ERROR = 'FETCH_PLAYERS_ERROR';
 export const fetchPlayersError = (error) => {
-    return {
-        type: FETCH_PLAYERS_ERROR,
-        error
-    }
-}
+  return {
+    type: FETCH_PLAYERS_ERROR,
+    error
+  };
+};
 
 export const fetchPlayers = authToken => dispatch => {
-    return fetch(`${API_BASE_URL}/api/players`, {
-        method: 'GET',
-        headers: {
-            // Provide our auth token as credentials
-            Authorization: `Bearer ${authToken}`
-        }
-    })
+  return fetch(`${API_BASE_URL}/api/players`, {
+    method: 'GET',
+    headers: {
+      // Provide our auth token as credentials
+      Authorization: `Bearer ${authToken}`
+    }
+  })
     .then(res => {
       if (!res.ok) {
         return Promise.reject(res.statusText);
@@ -44,19 +44,44 @@ export const fetchPlayers = authToken => dispatch => {
 
 export const POST_PLAYER = 'POST_PLAYER';
 export const postPlayer = (player) => {
-    return {
-        type: POST_PLAYER,
-        player
-    }
-}
+  return {
+    type: POST_PLAYER,
+    player
+  };
+};
 
 export const TOGGLE_EXPAND_CARD = 'TOGGLE_EXPAND_CARD';
 export const toggleExpandCard = (player) => {
-    return {
-        type: TOGGLE_EXPAND_CARD,
-        player
+  return {
+    type: TOGGLE_EXPAND_CARD,
+    player
+  };
+};
+
+export const DELETE_PLAYER = 'DELETE_PLAYER';
+export const deletePlayer = (id) => {
+  return {
+    type: DELETE_PLAYER,
+    id
+  };
+};
+
+export const fetchDeletePlayer = (authToken, id) => dispatch => {
+  return fetch(`${API_BASE_URL}/api/players`, {
+    method: 'DELETE',
+    headers: {
+      // Provide our auth token as credentials
+      Authorization: `Bearer ${authToken}`
     }
-}
+  })
+    .then(res => {
+      if (!res.ok) {
+        return Promise.reject(res.statusText);
+      }
+      return dispatch(deletePlayer(id));
+    });
+};
+
 
 
 
