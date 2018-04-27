@@ -1,5 +1,5 @@
 import {SET_AUTH_TOKEN, AUTH_REQUEST, AUTH_SUCCESS, AUTH_ERROR} from '../actions/auth';
-import { DELETE_PLAYER } from '../actions/players';
+import { DELETE_PLAYER, EDIT_ACCOUNT } from '../actions/players';
 
 const initialState = {
   authToken: null,

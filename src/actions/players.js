@@ -97,6 +97,20 @@ export const editAccount = (updatedPlayer) => {
   };
 };
 
+export const fetchUpdateAccount = (authToken, id, updatedPlayer) => {
+  return fetch(`${API_BASE_URL}/api/players/${id}`, {
+    method: 'PUT',
+    headers: {
+      'Accept': 'application/json',
+      'Content-Type': 'application/json',
+      'Authorization': `Bearer ${authToken}`
+    },
+    body: JSON.stringify({
+      updatedPlayer
+    })
+  });
+};
+
 
 
 

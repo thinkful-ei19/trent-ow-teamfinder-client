@@ -3,14 +3,12 @@ import {reduxForm, Field, SubmissionError} from 'redux-form';
 import {connect} from 'react-redux';
 
 import Checkbox from './checkbox';
-import {API_BASE_URL, heroList, roleList} from '../config';
-import {postPlayer, fetchPlayers} from '../actions/players';
+import { heroList, roleList} from '../config';
+import {fetchUpdateAccount, editAccount} from '../actions/players';
 import {normalizeResponseErrors} from '../actions/utils';
 
 
 class EditAccountForm extends React.Component {
-    
-
     convertFormValues(valueObj) {
       const roles = roleList.filter(role => valueObj[role]);
       const heroPool = heroList.filter(hero => valueObj[hero]);
@@ -24,25 +22,15 @@ class EditAccountForm extends React.Component {
     onSubmit() {
         return this.props.handleSubmit(values => {
             const filteredValues= this.convertFormValues(values);
-            return fetch(`${API_BASE_URL}/api/players`, {
-                method: 'POST',
-                headers: {
-                  'Accept': 'application/json',
-                  'Content-Type': 'application/json',
-                },
-                body: JSON.stringify({
-                  players: filteredValues
-                })
-              })
+            return fetchUpdateAccount(this.props.authToken, this.props.currentUser.id, filteredValues)
               .then(res => normalizeResponseErrors(res))
               .then(res => {
-                this.props.reset()
                 return res.json();
               })
-            .then((data) =>this.props.dispatch(postPlayer(data)))
+            .then((data) =>this.props.dispatch(editAccount(data)))
             // .then(() => this.props.dispatch(login(filteredValues.username, filteredValues.password)))
-            .then(() => this.props.dispatch(fetchPlayers(this.props.authToken)))
-            .then(() => this.props.history.push('/auth/players'))
+            // .then(() => this.props.dispatch(fetchPlayers(this.props.authToken)))
+            // .then(() => this.props.history.push('/auth/players'))
             .catch(err => {
                 const {reason, message, location} = err;
                 if (reason === 'ValidationError') {
