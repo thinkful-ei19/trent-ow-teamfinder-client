@@ -82,6 +82,14 @@ export const fetchDeletePlayer = (authToken, id) => dispatch => {
     });
 };
 
+export const TOGGLE_EDIT_ACCOUNT_MODE = 'TOGGLE_EDIT_ACCOUNT_MODE';
+export const toggleEditAccount = () => {
+  return {
+    type: TOGGLE_EDIT_ACCOUNT_MODE
+  };
+};
+
+
 
 
 

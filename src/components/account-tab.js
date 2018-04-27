@@ -2,8 +2,9 @@ import React from 'react';
 import {connect} from 'react-redux';
 import {withRouter} from 'react-router-dom';
 import './expanded-player-card.css';
+import AccountInfo from './account-info';
 
-import {fetchDeletePlayer} from '../actions/players';
+import {fetchDeletePlayer, toggleEditAccount} from '../actions/players';
 
 class AccountTab extends React.Component {
     deleteOnClick() {
@@ -11,14 +12,17 @@ class AccountTab extends React.Component {
         .then(() => this.props.history.push('/'));
     }
 
+    toggleEditOnClick() {
+      this.props.dispatch(toggleEditAccount());
+    }
+
     render() {
         let currentPlayer;
         if (this.props.currentUser){
           currentPlayer = (
-            <li key={this.props.currentUser.id} className="card expanded">
-                {this.props.currentUser.username} {this.props.currentUser.skillRating} {this.props.currentUser.roles} {this.props.currentUser.heroPool}
-                <button onClick={() => this.deleteOnClick()}>Delete</button> <button>Edit</button>
-            </li>
+            <AccountInfo currentUser={this.props.currentUser} 
+                deleteOnClick={() => this.deleteOnClick()}
+                toggleEditOnClick={() => this.toggleEditOnClick()}/>
           );
               
         }

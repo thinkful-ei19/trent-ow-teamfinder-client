@@ -3,14 +3,17 @@ import {
     FETCH_PLAYERS_ERROR,
     FETCH_PLAYERS_SUCCESS,
     POST_PLAYER,
-    TOGGLE_EXPAND_CARD
+    TOGGLE_EXPAND_CARD,
+    DELETE_PLAYER,
+    TOGGLE_EDIT_ACCOUNT_MODE
 } from '../actions/players';
 
 const initialState = {
     players: [],
     loading: false,
     error: null,
-    currentExpanded: false
+    currentExpanded: false,
+    editAccountMode: false
 }
 
 export const playersReducer = (state = initialState, action) => {
@@ -53,8 +56,26 @@ export const playersReducer = (state = initialState, action) => {
               ...state,
               currentExpanded: false
             }
+        }   
+    }
+    else if (action.type === DELETE_PLAYER){
+        return {
+            ...state,
+            players: []
         }
-        
+    }
+    else if (action.type === TOGGLE_EDIT_ACCOUNT_MODE){
+        if (!state.editAccountMode) {
+            return {
+              ...state,
+              editAccountMode : true
+            }
+          } else {
+            return {
+              ...state,
+              editAccountMode: false
+              }
+          }   
     }
     return state
 }
