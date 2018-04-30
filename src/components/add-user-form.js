@@ -4,8 +4,10 @@ import {connect} from 'react-redux';
 import {withRouter} from 'react-router-dom';
 
 import './add-user-form.css';
-import Checkbox from './checkbox';
-import {API_BASE_URL, heroList, roleList} from '../config';
+import RolesAndHeroes from './roles-heroes';
+
+import {API_BASE_URL, HERO_LIST, ROLE_LIST} from '../config';
+
 import {postPlayer, fetchPlayers} from '../actions/players';
 import {login} from '../actions/auth';
 import {normalizeResponseErrors} from '../actions/utils';
@@ -13,8 +15,8 @@ import {normalizeResponseErrors} from '../actions/utils';
 
 class AddUserForm extends React.Component {
     convertFormValues(valueObj) {
-      const roles = roleList.filter(role => valueObj[role]);
-      const heroPool = heroList.filter(hero => valueObj[hero]);
+      const roles = ROLE_LIST.filter(role => valueObj[role.name]).map(role => role.name);
+      const heroPool = HERO_LIST.filter(hero => valueObj[hero.name]).map(hero => hero.name);
       return {
           username : valueObj.username,
           skillRating: valueObj.skillRating,
@@ -67,24 +69,15 @@ class AddUserForm extends React.Component {
     }
 
     render () {
-        const heroes = heroList.map((hero,index) => {
-            return (<Checkbox key={index} value={hero}/>);
-        })
-        const roles = roleList.map((role,index) => {
-            return (<Checkbox key={index} value={role}/>);
-        })
         return (
-            <form className="add-user-form" onSubmit={this.onSubmit()}>
+            <form className="player-form" onSubmit={this.onSubmit()}>
                 <label htmlFor='username'>Username: </label>
                 <Field component='input' type='text' name='username'/>
                 <label htmlFor='password'>Password: </label>
                 <Field component='input' type='text' name='password'/>
                 <label htmlFor='skill-rating'>Skill Rating: </label>
                 <Field component='input' type='number' name='skillRating'/><br/>
-                <label>Roles: </label>
-                {roles}
-                <br/><label>Heroes: </label><br/>
-                {heroes}
+                <RolesAndHeroes/>
                 <button>submit</button>
             </form>
         );

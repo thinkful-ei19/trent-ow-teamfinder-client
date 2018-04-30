@@ -2,7 +2,6 @@
     display: inline-block;
     list-style-type: none;
     cursor: pointer;
-    width:200px; 
     border: 1px solid black;
 }
 ul {

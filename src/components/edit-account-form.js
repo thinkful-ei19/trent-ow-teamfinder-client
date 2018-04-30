@@ -2,16 +2,16 @@ import React from 'react';
 import {reduxForm, Field, SubmissionError} from 'redux-form';
 import {connect} from 'react-redux';
 
-import Checkbox from './checkbox';
-import { heroList, roleList} from '../config';
+import RolesAndHeroes from './roles-heroes';
+import { HERO_LIST, ROLE_LIST} from '../config';
 import {fetchUpdateAccount, editAccount} from '../actions/players';
 import {normalizeResponseErrors} from '../actions/utils';
 
 
 class EditAccountForm extends React.Component {
     convertFormValues(valueObj) {
-      const roles = roleList.filter(role => valueObj[role]);
-      const heroPool = heroList.filter(hero => valueObj[hero]);
+      const roles = ROLE_LIST.filter(role => valueObj[role]);
+      const heroPool = HERO_LIST.filter(hero => valueObj[hero]);
       return {
           skillRating: valueObj.skillRating,
           roles,
@@ -49,20 +49,11 @@ class EditAccountForm extends React.Component {
     }
 
     render () {
-        const heroes = heroList.map((hero,index) => {
-            return (<Checkbox key={index} value={hero}/>);
-        })
-        const roles = roleList.map((role,index) => {
-            return (<Checkbox key={index} value={role}/>);
-        })
         return (
-            <form onSubmit={this.onSubmit()}>
+            <form className="player-form" onSubmit={this.onSubmit()}>
                 <label htmlFor='skill-rating'>SR: </label>
                 <Field component='input' type='number' name='skillRating'/><br/>
-                <label>Roles: </label>
-                {roles}
-                <label>Heroes: </label>
-                {heroes}
+                <RolesAndHeroes/>
                 <button>submit</button>
             </form>
         );
