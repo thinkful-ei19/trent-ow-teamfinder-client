@@ -1,0 +1,22 @@
+.login {
+    text-align: center;
+    width: 55%;
+    margin: 0 auto;
+    background-color:#3A3B3F;
+    border: 2px solid white;
+    border-radius: 3px;
+}
+
+.login-label {
+    display: block;
+}
+
+.login-button {
+    margin-top: 5px;
+}
+
+@media screen and (max-width: 680px) {
+    .login {
+        width: 100%;
+    }
+}

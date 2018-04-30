@@ -3,6 +3,7 @@ import {reduxForm, Field, SubmissionError} from 'redux-form';
 import {connect} from 'react-redux';
 import {Link, withRouter} from 'react-router-dom';
 
+import './login.css';
 import {fetchPlayers} from '../actions/players';
 import { login } from '../actions/auth';
 
@@ -35,14 +36,14 @@ class Login extends React.Component {
 
     render () {
         return (
-            <div>
+            <div className="login">
               <form onSubmit={this.onSubmit()}>
-                Log in:<br/>
-                <label htmlFor='username'>username: </label>
+                <h1>Login</h1>
+                <label className="login-label" htmlFor='username'>Username: </label>
                 <Field component='input' type='text' name='username'/>
-                <label htmlFor='password'>password: </label>
-                <Field component='input' type='text' name='password'/>
-                <button>Login</button>
+                <label className="login-label" htmlFor='password'>Password: </label>
+                <Field component='input' type='text' name='password'/><br/>
+                <button className="login-button">Login</button>
               </form>
               <h3>Don't have an Account? <Link to='/register'>Register</Link></h3>
             </div>
