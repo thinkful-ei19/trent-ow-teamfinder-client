@@ -3,6 +3,7 @@ import {reduxForm, Field, SubmissionError} from 'redux-form';
 import {connect} from 'react-redux';
 import {withRouter} from 'react-router-dom';
 
+import './add-user-form.css';
 import Checkbox from './checkbox';
 import {API_BASE_URL, heroList, roleList} from '../config';
 import {postPlayer, fetchPlayers} from '../actions/players';
@@ -73,16 +74,16 @@ class AddUserForm extends React.Component {
             return (<Checkbox key={index} value={role}/>);
         })
         return (
-            <form onSubmit={this.onSubmit()}>
-                <label htmlFor='username'>username: </label>
+            <form className="add-user-form" onSubmit={this.onSubmit()}>
+                <label htmlFor='username'>Username: </label>
                 <Field component='input' type='text' name='username'/>
-                <label htmlFor='password'>password: </label>
+                <label htmlFor='password'>Password: </label>
                 <Field component='input' type='text' name='password'/>
-                <label htmlFor='skill-rating'>SR: </label>
+                <label htmlFor='skill-rating'>Skill Rating: </label>
                 <Field component='input' type='number' name='skillRating'/><br/>
                 <label>Roles: </label>
                 {roles}
-                <label>Heroes: </label>
+                <br/><label>Heroes: </label><br/>
                 {heroes}
                 <button>submit</button>
             </form>

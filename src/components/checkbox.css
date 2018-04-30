@@ -1,0 +1,23 @@
+.image {
+    content: url("https://d1u1mce87gyfbn.cloudfront.net/hero/doomfist/hero-select-portrait.png");
+    width: 75px;
+    cursor: pointer;
+    border: 1px solid white;
+    margin: 10px;
+    background: linear-gradient(to bottom right,#EE9F3A, #3A3B3F);
+}
+input[type=checkbox] {
+    display: none;
+}
+
+.checkbox {
+    display: inline-block;
+}
+
+.image:hover {
+    opacity: 0.5;
+}
+
+:checked+.image, .image:hover {
+   width: 100px;
+}
