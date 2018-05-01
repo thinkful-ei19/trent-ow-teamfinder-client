@@ -9,7 +9,7 @@ import RolesAndHeroes from './roles-heroes';
 import {API_BASE_URL, HERO_LIST, ROLE_LIST} from '../config';
 
 import {postPlayer, fetchPlayers} from '../actions/players';
-import {login} from '../actions/auth';
+import {login, authError} from '../actions/auth';
 import {normalizeResponseErrors} from '../actions/utils';
 
 
@@ -50,6 +50,7 @@ class AddUserForm extends React.Component {
             .then(() => this.props.history.push('/auth/players'))
             .catch(err => {
                 const {reason, message, location} = err;
+                this.props.dispatch(authError(err));
                 if (reason === 'ValidationError') {
                     // Convert ValidationErrors into SubmissionErrors for Redux Form
                     return Promise.reject(
@@ -69,6 +70,15 @@ class AddUserForm extends React.Component {
     }
 
     render () {
+        let error;
+        if (this.props.error) {
+            console.log(this.props.error)
+            error = (
+                <div className="form-error" aria-live="polite">
+                    {this.props.error}
+                </div>
+            );
+        }
         return (
             <form className="player-form" onSubmit={this.onSubmit()}>
                 <div className="container text-fields">
@@ -80,6 +90,7 @@ class AddUserForm extends React.Component {
                     <Field component='input' type='number' name='skillRating'/><br/>
                 </div>
                 <RolesAndHeroes/>
+                {error}
                 <button>submit</button>
             </form>
         );
@@ -88,7 +99,8 @@ class AddUserForm extends React.Component {
 
 const mapStateToProps = state => {
     return {
-      authToken: state.auth.authToken
+      authToken: state.auth.authToken,
+      error: state.auth.error
     }
   }
   

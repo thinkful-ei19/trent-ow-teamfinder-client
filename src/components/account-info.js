@@ -5,14 +5,14 @@ import './account-info.css';
 export default function AccountInfo(props) {
     const roles = ROLE_LIST.filter(role => props.currentUser.roles.includes(role.name)).map(role => {
         return (
-            <div className="img-wrapper">
+            <div key={role.name} className="img-wrapper">
                 <img src={role.url} alt={role.name}/>
             </div>   
         );
     }); 
     const heroes = HERO_LIST.filter(hero => props.currentUser.heroPool.includes(hero.name)).map(hero => {
         return (
-            <div className="img-wrapper">
+            <div key={hero.name} className="img-wrapper">
                 <img src={hero.url} alt={hero.name}/>
             </div>   
         );

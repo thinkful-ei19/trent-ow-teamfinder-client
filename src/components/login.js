@@ -1,5 +1,5 @@
 import React from 'react';
-import {reduxForm, Field, SubmissionError} from 'redux-form';
+import {reduxForm, Field} from 'redux-form';
 import {connect} from 'react-redux';
 import {Link, withRouter} from 'react-router-dom';
 
@@ -13,28 +13,19 @@ class Login extends React.Component {
           return this.props.dispatch(login(values.username, values.password))
             .then(() => this.props.dispatch(fetchPlayers(this.props.authToken)))
             .then(() => this.props.history.push('/auth/players'))
-            .catch(err => {
-                const {reason, message, location} = err;
-                if (reason === 'ValidationError') {
-                    // Convert ValidationErrors into SubmissionErrors for Redux Form
-                    return Promise.reject(
-                        new SubmissionError({
-                            [location]: message
-                        })
-                    );
-                }
-                return Promise.reject(
-                    new SubmissionError({
-                        _error: 'Error submitting message'
-                    })
-                );
-            });
-                
         })
     }
 
 
     render () {
+        let error;
+        if (this.props.error) {
+            error = (
+                <div className="form-error" aria-live="polite">
+                    {this.props.error}
+                </div>
+            );
+        }
         return (
             <div className="login">
               <form onSubmit={this.onSubmit()}>
@@ -45,6 +36,7 @@ class Login extends React.Component {
                 <Field component='input' type='text' name='password'/><br/>
                 <button className="login-button">Login</button>
               </form>
+              {error}
               <h3>Don't have an Account? <Link to='/register'>Register</Link></h3>
             </div>
             
@@ -55,7 +47,8 @@ class Login extends React.Component {
 
 const mapStateToProps = state => {
   return {
-    authToken: state.auth.authToken
+    authToken: state.auth.authToken,
+    error: state.auth.error
   }
 }
 

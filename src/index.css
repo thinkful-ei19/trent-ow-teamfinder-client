@@ -81,3 +81,8 @@ a {
   display: flex;
   flex-wrap: wrap;
 }
+
+.form-error {
+    color: red;
+    margin: 5px;
+}

@@ -24,7 +24,7 @@ input[type=checkbox] {
 }
 
 .checkbox :checked+img {
-   border: 0.3em solid cyan;
+   border: 0.3em solid #0075B2;
    background: linear-gradient(to bottom right,#EE9F3A, #3A3B3F);
 }
 
