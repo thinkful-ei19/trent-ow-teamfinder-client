@@ -9,6 +9,7 @@ import {
     EDIT_ACCOUNT,
     REFRESH_PLAYERS_TAB
 } from '../actions/players';
+import { LOG_OUT } from '../actions/auth';
 
 const initialState = {
     players: [],
@@ -91,6 +92,15 @@ export const playersReducer = (state = initialState, action) => {
         return {
             ...state,
             currentExpanded: false
+        }
+    }
+    else if (action.type === LOG_OUT){
+        return {
+            ...state,
+            players: [],
+            error: null,
+            currentExpanded: false,
+            editAccountMode: false
         }
     }
     return state

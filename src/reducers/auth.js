@@ -1,4 +1,4 @@
-import {SET_AUTH_TOKEN, AUTH_REQUEST, AUTH_SUCCESS, AUTH_ERROR} from '../actions/auth';
+import {SET_AUTH_TOKEN, AUTH_REQUEST, AUTH_SUCCESS, AUTH_ERROR, LOG_OUT} from '../actions/auth';
 import { DELETE_PLAYER, EDIT_ACCOUNT } from '../actions/players';
 
 const initialState = {
@@ -42,6 +42,15 @@ export const authReducer = (state = initialState, action) => {
     return {
         ...state,
         currentUser: action.updatedPlayer
+    }
+  }
+  else if (action.type === LOG_OUT){
+    return {
+        ...state,
+        currentUser: null,
+        error: null,
+        authToken: null
+
     }
   }
     return state;
