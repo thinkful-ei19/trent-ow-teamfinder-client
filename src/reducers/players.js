@@ -10,35 +10,7 @@ import {
 } from '../actions/players';
 
 const initialState = {
-    players: [
-        {
-            "_id" : "000000000000000000000000",
-            "username" : "user1",
-            "password": "$2a$10$mzy166ztW0nERiBYVYpeEeOYhRnnda124ALbjEy0UJmkXBW6ScyEu",
-            "skillRating" : 2500,
-            "roles" : ["DPS", "Tank", "Support", "Flex"],
-            "heroPool": ["McCree", "Winston", "Reinhardt"],
-            "bio" : ["Looking for cool players to rank up with"]
-        },
-        {
-            "_id" : "000000000000000000000001",
-            "username" : "user2",
-            "password": "$2a$10$zA2cQsPP7oul12j7PIv0/eiWZrX16oKaEzurG6NHQtHBUXU7DQgha",
-            "skillRating" : 3000,
-            "roles" : ["Tank", "Support"],
-            "heroPool": ["Winston", "Reinhardt"],
-            "bio" : ["cool people welcome"]
-        },
-        {
-            "_id" : "000000000000000000000002",
-            "username" : "user3",
-            "password": "$2a$10$zA2cQsPP7oul12j7PIv0/eiWZrX16oKaEzurG6NHQtHBUXU7DQgha",
-            "skillRating" : 2700,
-            "roles" : ["DPS"],
-            "heroPool": ["Genji", "Widowmaker"],
-            "bio" : ["no toxicity"]
-        }
-    ],
+    players: [],
     loading: false,
     error: null,
     currentExpanded: false,

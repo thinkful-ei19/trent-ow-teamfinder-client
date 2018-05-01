@@ -10,8 +10,8 @@ import {normalizeResponseErrors} from '../actions/utils';
 
 class EditAccountForm extends React.Component {
     convertFormValues(valueObj) {
-      const roles = ROLE_LIST.filter(role => valueObj[role]);
-      const heroPool = HERO_LIST.filter(hero => valueObj[hero]);
+      const roles = ROLE_LIST.filter(role => valueObj[role.name]).map(role => role.name);;
+      const heroPool = HERO_LIST.filter(hero => valueObj[hero.name]).map(hero => hero.name);;
       return {
           skillRating: valueObj.skillRating,
           roles,

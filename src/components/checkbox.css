@@ -1,23 +1,30 @@
-.image {
+.checkbox img {
     /* content: url("https://d1u1mce87gyfbn.cloudfront.net/hero/doomfist/hero-select-portrait.png"); */
     width: 75px;
     cursor: pointer;
-    border: 1px solid white;
-    margin: 10px;
-    background: linear-gradient(to bottom right,#EE9F3A, #3A3B3F);
+    background: linear-gradient(to bottom right,black, #3A3B3F);
+    /* background-color: #262626; */
+    border: 0.3em solid black;
 }
+
 input[type=checkbox] {
     display: none;
 }
 
 .checkbox {
-    display: inline-block;
+    display: block;
+    position: relative;
+    /* border: 1px solid white; */
+    margin: 10px;
+    
 }
 
-.image:hover {
+.checkbox img:hover {
     opacity: 0.5;
 }
 
-:checked+.image, .image:hover {
-   width: 100px;
+.checkbox :checked+img {
+   border: 0.3em solid cyan;
+   background: linear-gradient(to bottom right,#EE9F3A, #3A3B3F);
 }
+

@@ -1,3 +1,23 @@
 .expanded {
-    width:1000px;
+    /* width:100%; */
+    margin: 0 auto;
+    width: 1000px;
+    height: unset;
+}
+
+.expanded img {
+    width: 75px;
+    background: linear-gradient(to bottom right,#EE9F3A, #3A3B3F);
+    border: 1px solid white;
+}
+
+.img-wrapper {
+    display: block;
+    position: relative;
+    margin: 10px;
+    
+}
+
+.expanded-container {
+    justify-content: center;
 }

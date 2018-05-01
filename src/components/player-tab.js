@@ -16,16 +16,21 @@ class PlayerTab extends React.Component {
         let players;
         if(this.props.players){
             if (this.props.currentExpanded){
-                players = <ExpandedPlayerCard onClick={(props) => this.onClick(props)} username={this.props.currentExpanded.username} skillRating={this.props.currentExpanded.skillRating}  roles={this.props.currentExpanded.roles}/>
+                players = <ExpandedPlayerCard onClick={(props) => this.onClick(props)} 
+                currentUser={this.props.currentExpanded}/>
             } else {
                 players = this.props.players.map(player => {
-                    return <PlayerCard onClick={(props) => this.onClick(props)} id={player.id} key={player.id} username={player.username} skillRating={player.skillRating}  roles={player.roles}/>
+                    return <PlayerCard onClick={(props) => this.onClick(props)} 
+                    id={player.id} key={player.id} 
+                    username={player.username} 
+                    skillRating={player.skillRating}  
+                    roles={player.roles}/>
                 })
             }
         }
         
         
-        return (<ul>
+        return (<ul className="container card-wrapper">
                     {players}
                 </ul>);
     } 

@@ -14,10 +14,14 @@ export default function RolesAndHeroes(props) {
 
     return (
       <div>
-          <label>Roles: </label>
+          Roles:
+          <div className="container">
             {roles}
-          <br/><label>Heroes: </label><br/>
-            {heroes}
+          </div>
+          <br/>Heroes:<br/>
+          <div className="container">
+          {heroes}
+          </div>   
       </div>
     );
   }
