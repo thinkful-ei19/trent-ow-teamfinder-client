@@ -111,6 +111,13 @@ export const fetchUpdateAccount = (authToken, id, updatedPlayer) => {
   });
 };
 
+export const REFRESH_PLAYERS_TAB = 'REFRESH_PLAYERS_TAB';
+export const refreshPlayersTab = () => {
+  return {
+    type: REFRESH_PLAYERS_TAB
+  };
+};
+
 
 
 

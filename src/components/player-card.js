@@ -6,7 +6,7 @@ export default function PlayerCard(props) {
     return (
       <li key={props.id} className="card" onClick={() => props.onClick(props)}>
           <h1>{props.username}</h1> 
-          <h3>{props.skillRating}</h3>
+          <h3>Skill Rating: {props.skillRating}</h3>
           Role(s): {roles} 
       </li>
     );

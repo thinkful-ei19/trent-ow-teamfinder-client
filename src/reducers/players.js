@@ -6,7 +6,8 @@ import {
     TOGGLE_EXPAND_CARD,
     DELETE_PLAYER,
     TOGGLE_EDIT_ACCOUNT_MODE,
-    EDIT_ACCOUNT
+    EDIT_ACCOUNT,
+    REFRESH_PLAYERS_TAB
 } from '../actions/players';
 
 const initialState = {
@@ -79,10 +80,17 @@ export const playersReducer = (state = initialState, action) => {
           }   
     }
     else if (action.type === EDIT_ACCOUNT){
+        const editedPlayers = state.players.filter(player => player.id !== action.updatedPlayer.id)
         return {
             ...state,
-            players: [...state.players, action.updatedPlayer],
+            players: [...editedPlayers, action.updatedPlayer],
             editAccountMode: false
+        }
+    }
+    else if (action.type === REFRESH_PLAYERS_TAB){
+        return {
+            ...state,
+            currentExpanded: false
         }
     }
     return state
