@@ -12,7 +12,7 @@ class Login extends React.Component {
         return this.props.handleSubmit(values => {
           return this.props.dispatch(login(values.username, values.password))
             .then(() => this.props.dispatch(fetchPlayers(this.props.authToken)))
-            .then(() => this.props.history.push('/auth/players'))
+            .then(() => this.props.history.push('/view/players'))
         })
     }
 
@@ -33,7 +33,7 @@ class Login extends React.Component {
                 <label className="login-label" htmlFor='username'>Username: </label>
                 <Field component='input' type='text' name='username'/>
                 <label className="login-label" htmlFor='password'>Password: </label>
-                <Field component='input' type='text' name='password'/><br/>
+                <Field component='input' type='password' name='password'/><br/>
                 <button className="login-button">Login</button>
               </form>
               {error}

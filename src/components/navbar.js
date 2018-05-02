@@ -8,9 +8,9 @@ import { logOut } from '../actions/auth';
 function NavBar(props) {
     return (
       <nav className="topnav">
-          <Link to='/auth/players' onClick={() => props.dispatch(refreshPlayersTab())}>Players </Link>
-          <Link className="nav-right" to='/auth/account'>Account</Link>
+          <Link to='/view/players' onClick={() => props.dispatch(refreshPlayersTab())}>Players </Link>
           <Link className="nav-right" to='/' onClick={() => props.dispatch(logOut())}>Sign Out</Link>
+          <Link className="nav-right" to='/view/account'>Account</Link>
       </nav>
     );
 }

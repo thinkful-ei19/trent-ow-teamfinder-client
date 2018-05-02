@@ -8,8 +8,8 @@ export default function Checkbox(props) {
   // }
   return (
     <label className="checkbox">
-      <Field  component='input' type='checkbox' name={props.value} value={props.value}/>
-      <img src={props.url} alt={props.value}/>
+      <Field component='input' type='checkbox' name={props.value} value={props.value}/>
+      <img src={props.url} title={props.value} alt={props.value}/>
     </label>
   );
 }

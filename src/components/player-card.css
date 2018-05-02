@@ -21,6 +21,11 @@ ul {
     padding:0;
 }
 
+.card-title {
+    overflow-wrap: break-word;
+    font-size: 39px;
+}
+
 @media only screen and (max-width: 550px) {
     .card {
         width: 100%;

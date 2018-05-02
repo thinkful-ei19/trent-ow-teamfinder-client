@@ -5,6 +5,7 @@
     background: linear-gradient(to bottom right,black, #3A3B3F);
     /* background-color: #262626; */
     border: 0.3em solid black;
+    opacity: 0.6;
 }
 
 input[type=checkbox] {
@@ -20,11 +21,12 @@ input[type=checkbox] {
 }
 
 .checkbox img:hover {
-    opacity: 0.5;
+    opacity: 0.8;
 }
 
 .checkbox :checked+img {
    border: 0.3em solid #0075B2;
    background: linear-gradient(to bottom right,#EE9F3A, #3A3B3F);
+   opacity: 1.0;
 }
 

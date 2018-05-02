@@ -18,7 +18,8 @@ export default function ExpandedPlayerCard(props) {
         );
     });
     return (
-      <li className="card expanded" onClick={() => props.onClick(props)}>
+      <li className="card expanded" >
+          <button className="minimize-button" onClick={() => props.onClick(props)}>X</button>
           <h1>{props.currentUser.username}</h1>
           <h3> Skill Rating: {props.currentUser.skillRating}</h3>
           Roles:  

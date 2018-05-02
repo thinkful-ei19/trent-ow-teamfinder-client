@@ -31,4 +31,4 @@ export const HERO_LIST = [
     	{name: 'Zenyatta', url: '/overwatch-imgs/zenyatta.png'}
 ];
 
-export const ROLE_LIST = [{ name: 'DPS', url: '/overwatch-imgs/dps-icon.png'}, { name: 'Flex', url: '/overwatch-imgs/dps-icon.png'},{ name: 'Tank', url: '/overwatch-imgs/tank-icon.png'},{ name: 'Support', url: '/overwatch-imgs/support-icon.png'}];
+export const ROLE_LIST = [{ name: 'DPS', url: '/overwatch-imgs/dps-icon.png'},{ name: 'Tank', url: '/overwatch-imgs/tank-icon.png'},{ name: 'Support', url: '/overwatch-imgs/support-icon.png'}];

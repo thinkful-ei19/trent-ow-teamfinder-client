@@ -2,6 +2,8 @@ import React from 'react';
 import {reduxForm, Field, SubmissionError} from 'redux-form';
 import {connect} from 'react-redux';
 
+import './edit-account-form.css';
+
 import RolesAndHeroes from './roles-heroes';
 import { HERO_LIST, ROLE_LIST} from '../config';
 import {fetchUpdateAccount, editAccount} from '../actions/players';
@@ -50,9 +52,9 @@ class EditAccountForm extends React.Component {
 
     render () {
         return (
-            <form className="player-form" onSubmit={this.onSubmit()}>
+            <form className="player-form edit-account-form" onSubmit={this.onSubmit()}>
                 <label htmlFor='skill-rating'>SR: </label>
-                <Field component='input' type='number' name='skillRating'/><br/>
+                <Field component='input' type='number' min="0" max="5000" name='skillRating'/><br/>
                 <RolesAndHeroes/>
                 <button>submit</button>
             </form>

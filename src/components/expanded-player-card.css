@@ -3,6 +3,7 @@
     margin: 0 auto;
     width: 1000px;
     height: unset;
+    cursor: default;
 }
 
 .expanded img {
@@ -20,4 +21,9 @@
 
 .expanded-container {
     justify-content: center;
+}
+
+.minimize-button {
+    margin: 5px 5px 0 0;
+    float: right;
 }

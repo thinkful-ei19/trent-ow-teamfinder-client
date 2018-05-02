@@ -47,7 +47,7 @@ class AddUserForm extends React.Component {
             .then((data) =>this.props.dispatch(postPlayer(data)))
             .then(() => this.props.dispatch(login(filteredValues.username, filteredValues.password)))
             .then(() => this.props.dispatch(fetchPlayers(this.props.authToken)))
-            .then(() => this.props.history.push('/auth/players'))
+            .then(() => this.props.history.push('/view/players'))
             .catch(err => {
                 const {reason, message, location} = err;
                 this.props.dispatch(authError(err));
@@ -72,10 +72,9 @@ class AddUserForm extends React.Component {
     render () {
         let error;
         if (this.props.error) {
-            console.log(this.props.error)
             error = (
                 <div className="form-error" aria-live="polite">
-                    {this.props.error}
+                    {this.props.errorMessage.message}
                 </div>
             );
         }
@@ -83,11 +82,12 @@ class AddUserForm extends React.Component {
             <form className="player-form" onSubmit={this.onSubmit()}>
                 <div className="container text-fields">
                     <label htmlFor='username'>Username: </label>
-                    <Field component='input' type='text' name='username'/>
+                    <Field component='input' type='text' name='username' required/>
                     <label htmlFor='password'>Password: </label>
-                    <Field component='input' type='text' name='password'/>
+                    <Field component='input' type='password' name='password' minlength="8"
+       maxlength="72" required/>
                     <label htmlFor='skill-rating'>Skill Rating: </label>
-                    <Field component='input' type='number' name='skillRating'/><br/>
+                    <Field component='input' type='number' max="5000" min="0" required name='skillRating'/><br/>
                 </div>
                 <RolesAndHeroes/>
                 {error}
@@ -100,7 +100,7 @@ class AddUserForm extends React.Component {
 const mapStateToProps = state => {
     return {
       authToken: state.auth.authToken,
-      error: state.auth.error
+      errorMessage: state.auth.error
     }
   }
   
