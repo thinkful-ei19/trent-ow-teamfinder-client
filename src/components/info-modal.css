@@ -12,3 +12,9 @@
 .info-window ul {
     padding: 0 50px;
 }
+
+@media screen and (max-width: 680px) {
+    .info-window {
+        width: 100%;
+    }
+}
