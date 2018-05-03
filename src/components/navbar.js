@@ -13,7 +13,7 @@ function NavBar(props) {
             <i className="fas fa-bars"></i>
         </div>
         <div className={props.isDisplayed ? "navbar-items navbar-toggle-show" : "navbar-items"}>
-            <Link onClick={() => props.dispatch(hideDisplayNav())} to='/'>OW TeamBuilder</Link>
+            <Link onClick={() => props.dispatch(hideDisplayNav())} to='/view/info'><span className="orange">Team</span>Builder</Link>
             <Link to='/view/players' 
                 onClick={() => {
                   props.dispatch(hideDisplayNav())

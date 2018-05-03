@@ -1,0 +1,14 @@
+.info-window {
+    text-align: center;
+    width: 55%;
+    max-width: 1000px;
+    margin: 50px auto;
+    background-color:#3A3B3F;
+    border: 2px solid white;
+    border-radius: 3px;
+    padding: 0 20px;
+}
+
+.info-window ul {
+    padding: 0 50px;
+}
