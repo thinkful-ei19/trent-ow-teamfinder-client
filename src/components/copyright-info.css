@@ -1,0 +1,15 @@
+.copyright-footer {
+    background-color: #0075B2;
+    box-shadow: 0 50vh 0 50vh #0075B2;
+    margin-top: 100px;
+    border-top: 1px solid white;
+}
+
+.copyright-text {
+    width: 600px;
+    text-align: center;
+    font-size: 14px;
+    color: black; 
+    margin: 0 auto;
+    padding-bottom:25px;
+}

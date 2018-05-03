@@ -29,7 +29,8 @@ class Login extends React.Component {
         return (
             <div className="login">
               <form onSubmit={this.onSubmit()}>
-                <h1>Login</h1>
+                <h1><span className="orange">Team</span>Builder</h1>
+                <h2>Please Login</h2>
                 <label className="login-label" htmlFor='username'>Username: </label>
                 <Field component='input' type='text' name='username'/>
                 <label className="login-label" htmlFor='password'>Password: </label>

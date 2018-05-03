@@ -84,8 +84,8 @@ class AddUserForm extends React.Component {
                     <label htmlFor='username'>Username: </label>
                     <Field component='input' type='text' name='username' required/>
                     <label htmlFor='password'>Password: </label>
-                    <Field component='input' type='password' name='password' minlength="8"
-       maxlength="72" required/>
+                    <Field component='input' type='password' name='password' minLength="8"
+       maxLength="72" required/>
                     <label htmlFor='skill-rating'>Skill Rating: </label>
                     <Field component='input' type='number' max="5000" min="0" required name='skillRating'/><br/>
                 </div>

@@ -5,6 +5,7 @@ import PlayerTab from './components/player-tab';
 import Login from './components/login';
 import NavBar from './components/navbar';
 import AccountTab from './components/account-tab';
+import Copyright from './components/copyright-info';
 
 class App extends Component {
   render() {
@@ -15,6 +16,7 @@ class App extends Component {
         <Route exact path='/register' component={AddUserForm}/>
         <Route exact path='/view/players' component={PlayerTab}/>
         <Route exact path='/view/account' component={AccountTab}/>
+        <Copyright/>
       </div>
     );
   }
