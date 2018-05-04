@@ -53,8 +53,10 @@ class EditAccountForm extends React.Component {
     render () {
         return (
             <form className="player-form edit-account-form" onSubmit={this.onSubmit()}>
-                <label htmlFor='skill-rating'>SR: </label>
-                <Field component='input' type='number' min="0" max="5000" name='skillRating'/><br/>
+                <h1>Edit your Profile</h1>
+                <label>SR: 
+                    <Field id="edit-skill-rating" component='input' type='number' min="0" max="5000" name='skillRating'/>
+                </label><br/>
                 <RolesAndHeroes/>
                 <button>submit</button>
             </form>

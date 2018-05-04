@@ -7,6 +7,9 @@
     border-radius: 2px;
     max-width: 1000px;
 }
+.add-form-inputs {
+    margin-left: 10px;
+}
 
 
 .text-fields label {
@@ -15,6 +18,12 @@
 
 .text-fields input {
     margin-right: 0.5em;
+    padding: 3px;
 }
 
+@media only screen and (max-width: 650px) {
+    .player-form {
+        width: 100%;
+    }
+}
 

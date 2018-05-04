@@ -80,14 +80,17 @@ class AddUserForm extends React.Component {
         }
         return (
             <form className="player-form" onSubmit={this.onSubmit()}>
+                <h1>Build your Profile</h1>
                 <div className="container text-fields">
-                    <label htmlFor='username'>Username: </label>
-                    <Field component='input' type='text' name='username' required/>
-                    <label htmlFor='password'>Password: </label>
-                    <Field component='input' type='password' name='password' minLength="8"
-       maxLength="72" required/>
-                    <label htmlFor='skill-rating'>Skill Rating: </label>
-                    <Field component='input' type='number' max="5000" min="0" required name='skillRating'/><br/>
+                    <label>Username: 
+                        <Field className="add-form-inputs" component='input' type='text' name='username' required/>
+                    </label>
+                    <label>Password: 
+                    <Field className="add-form-inputs" component='input' type='password' name='password' minLength="8" maxLength="72" required/>
+                    </label>
+                    <label>Skill Rating: 
+                        <Field className="add-form-inputs" component='input' type='number' max="5000" min="0" required name='skillRating'/>
+                    </label><br/>
                 </div>
                 <RolesAndHeroes/>
                 {error}

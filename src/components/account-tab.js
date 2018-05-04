@@ -54,9 +54,9 @@ class AccountTab extends React.Component {
               
         }
         return (
-            <ul className="container card-wrapper">
+            <div className="container card-wrapper">
                 {currentDisplay}
-            </ul>
+            </div>
             
         );
     }

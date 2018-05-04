@@ -26,6 +26,10 @@ ul {
     font-size: 39px;
 }
 
+.card-skill-rating {
+    font-size: 1.17em;
+}
+
 @media only screen and (max-width: 550px) {
     .card {
         width: 100%;

@@ -1,3 +1,12 @@
 .player-form.edit-account-form {
     width: 1000px;
 }
+
+#edit-skill-rating {
+    padding: 3px;
+    margin-left: 0.5em;
+}
+
+.edit-account-form h1 {
+    font-size: 1.2em;
+}
