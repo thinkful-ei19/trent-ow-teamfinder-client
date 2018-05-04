@@ -3,14 +3,16 @@
     background-color: #0075B2;
     overflow: hidden;
     display: flex;
-    /* position: fixed; */
     margin-bottom: 20px;
 }
 .navbar-items {
     display: flex;
 }
+.navbar-brand {
+    display: flex;
+}
 
-.navbar-items a, .topnav i {
+.navbar-items a, .topnav i, .navbar-brand a {
     /* float: left; */
     /* color: #f2f2f2; */
     /* text-align: center; */
@@ -48,6 +50,7 @@
     .navbar-link-toggle {
       align-self: flex-end;
       display: initial;
+      position: absolute;
       cursor: pointer;
     }
 
