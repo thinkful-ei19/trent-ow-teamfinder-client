@@ -1,4 +1,4 @@
-# Overwatch Team Finder
+# Overwatch TeamBuilder
 ## A collection of players showcasing their strengths to find complementary teammates. 
 
 Link to deployed app: https://stoic-ride-303e5c.netlify.com/
@@ -36,5 +36,15 @@ The main goal of Overwatch Team finder is to create a small community of players
 * A reputation system amongst players
 * Adding a teams tab, to allow users to create a team card and allow other players to send a request to join
 * Using a webscraper to grab a players Skill rating that would change when it changed in game
+
+## Technology
+
+Overwatch TeamBuilder uses the MERN Stack
+
+* React/Redux
+* Node.js
+* MongoDB
+* Express
+
 
 
