@@ -1,10 +1,9 @@
 # Overwatch Team Finder
 ## A collection of players showcasing their strengths to find complementary teammates. 
 
+Link to deployed app: https://stoic-ride-303e5c.netlify.com/
 
-
-The main goal of Overwatch Team finder is to create a small community of players to make it easy to find players of similar skill levels to form a well rounded team of different roles.  
-
+The main goal of Overwatch Team finder is to create a small community of players to make it easy to find players of similar skill levels to form a well rounded team of different roles. 
 
 ## The Minimum Viable Product:
 
@@ -32,9 +31,10 @@ The main goal of Overwatch Team finder is to create a small community of players
 ## Ambitious Extensions of MVP
 
 * OAuth through Blizzard (also adding google login)
-* Build in app forgot password link
+* Build in app "forgot password link"
 * Dividing players amongst different regions
 * A reputation system amongst players
 * Adding a teams tab, to allow users to create a team card and allow other players to send a request to join
-* Using a webscraper to grab a players Skill rating that would be dynamic
+* Using a webscraper to grab a players Skill rating that would change when it changed in game
+
 
