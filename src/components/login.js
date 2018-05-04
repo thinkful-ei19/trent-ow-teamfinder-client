@@ -31,10 +31,10 @@ class Login extends React.Component {
               <form onSubmit={this.onSubmit()}>
                 <h1><span className="orange">Team</span>Builder</h1>
                 <h2>Please Login</h2>
-                <label className="login-label">Username: 
+                <label className="login-label">Username:<br/>
                 <Field component='input' type='text' name='username'/>
                 </label> 
-                <label className="login-label">Password:
+                <label className="login-label">Password:<br/>
                 <Field component='input' type='password' name='password'/><br/>
                 </label>
                 <button className="login-button">Login</button>

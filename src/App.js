@@ -16,7 +16,7 @@ class App extends Component {
         <Route exact path='/' component={Login} />
         <Route exact path='/info'  render={(props) => <InfoModal {...props} link={'/register'}/>}/>
         <Route exact path='/register' component={AddUserForm}/>
-        <Route exact path='/view/info' render={(props) => <InfoModal {...props} link={'/view/players'}/>}/>
+        <Route exact path='/view/info' render={(props) => <InfoModal {...props} shouldKick={true} link={'/view/players'}/>}/>
         <Route exact path='/view/players' component={PlayerTab}/>
         <Route exact path='/view/account' component={AccountTab}/>
         <Copyright/>

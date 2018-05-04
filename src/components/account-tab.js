@@ -8,6 +8,12 @@ import EditAccountForm from './edit-account-form';
 import {fetchDeletePlayer, toggleEditAccount} from '../actions/players';
 
 class AccountTab extends React.Component {
+    componentWillMount() {
+        if (!this.props.authToken) {
+          return this.props.history.push('/');
+        }
+    }
+
     convertInitialValues(currentUser) { 
         const roles = currentUser.roles.reduce((obj,role) => {
             obj[role] = true;
