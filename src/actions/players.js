@@ -42,10 +42,17 @@ export const fetchPlayers = authToken => dispatch => {
     .catch(err => dispatch(fetchPlayersError(err)));
 };
 
-export const POST_PLAYER = 'POST_PLAYER';
-export const postPlayer = (player) => {
+export const POST_PLAYER_REQUEST = 'POST_PLAYER_REQUEST';
+export const postPlayerRequest = () => {
   return {
-    type: POST_PLAYER,
+    type: POST_PLAYER_REQUEST
+  };
+};
+
+export const POST_PLAYER_SUCCESS = 'POST_PLAYER_SUCCESS';
+export const postPlayerSucess = (player) => {
+  return {
+    type: POST_PLAYER_SUCCESS,
     player
   };
 };

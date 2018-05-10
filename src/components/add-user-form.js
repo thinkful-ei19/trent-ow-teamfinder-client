@@ -8,7 +8,7 @@ import RolesAndHeroes from './roles-heroes';
 
 import {API_BASE_URL, HERO_LIST, ROLE_LIST} from '../config';
 
-import {postPlayer, fetchPlayers} from '../actions/players';
+import {postPlayerRequest, postPlayerSucess, fetchPlayers} from '../actions/players';
 import {login, authError} from '../actions/auth';
 import {normalizeResponseErrors} from '../actions/utils';
 
@@ -29,6 +29,7 @@ class AddUserForm extends React.Component {
     onSubmit() {
         return this.props.handleSubmit(values => {
             const filteredValues= this.convertFormValues(values);
+            this.props.dispatch(postPlayerRequest());
             return fetch(`${API_BASE_URL}/api/players`, {
                 method: 'POST',
                 headers: {
@@ -44,7 +45,7 @@ class AddUserForm extends React.Component {
                 this.props.reset()
                 return res.json();
               })
-            .then((data) =>this.props.dispatch(postPlayer(data)))
+            .then((data) =>this.props.dispatch(postPlayerSucess(data)))
             .then(() => this.props.dispatch(login(filteredValues.username, filteredValues.password)))
             .then(() => this.props.dispatch(fetchPlayers(this.props.authToken)))
             .then(() => this.props.history.push('/view/players'))

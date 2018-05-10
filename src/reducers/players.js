@@ -2,12 +2,13 @@ import {
     FETCH_PLAYERS_REQUEST,
     FETCH_PLAYERS_ERROR,
     FETCH_PLAYERS_SUCCESS,
-    POST_PLAYER,
+    POST_PLAYER_SUCCESS,
     TOGGLE_EXPAND_CARD,
     DELETE_PLAYER,
     TOGGLE_EDIT_ACCOUNT_MODE,
     EDIT_ACCOUNT,
-    REFRESH_PLAYERS_TAB
+    REFRESH_PLAYERS_TAB,
+    POST_PLAYER_REQUEST
 } from '../actions/players';
 import { LOG_OUT } from '../actions/auth';
 
@@ -42,10 +43,18 @@ export const playersReducer = (state = initialState, action) => {
             error: action.error
         }
     }
-    else if (action.type === POST_PLAYER ){
+    else if (action.type === POST_PLAYER_REQUEST ){
         return {
             ...state,
-            players: [...state.players, action.player]
+            loading: true,
+            error: null
+        }
+    }
+    else if (action.type === POST_PLAYER_SUCCESS ){
+        return {
+            ...state,
+            players: [...state.players, action.player],
+            loading: false
         }
     }
     else if (action.type === TOGGLE_EXPAND_CARD ){

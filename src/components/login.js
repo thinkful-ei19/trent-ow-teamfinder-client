@@ -2,6 +2,7 @@ import React from 'react';
 import {reduxForm, Field} from 'redux-form';
 import {connect} from 'react-redux';
 import {Link, withRouter} from 'react-router-dom';
+import Spinner from 'react-spinkit';
 
 import './login.css';
 import {fetchPlayers} from '../actions/players';
@@ -37,8 +38,9 @@ class Login extends React.Component {
                 <label className="login-label">Password:<br/>
                 <Field component='input' type='password' name='password'/><br/>
                 </label>
-                <button className="login-button">Login</button>
+                {this.props.loading ? <button className="login-button" disabled>Login</button> : <button className="login-button">Login</button>}
               </form>
+              {this.props.loading ? <Spinner name="three-bounce" color="white"/> : ''}
               {error}
               <h3>Don't have an Account? <Link to='/info'>Register</Link></h3>
             </div>
@@ -51,7 +53,8 @@ class Login extends React.Component {
 const mapStateToProps = state => {
   return {
     authToken: state.auth.authToken,
-    error: state.auth.error
+    error: state.auth.error,
+    loading: state.auth.loading
   }
 }
 
