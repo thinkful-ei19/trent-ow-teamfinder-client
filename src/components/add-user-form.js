@@ -2,6 +2,7 @@ import React from 'react';
 import {reduxForm, Field, SubmissionError} from 'redux-form';
 import {connect} from 'react-redux';
 import {withRouter} from 'react-router-dom';
+import Spinner from 'react-spinkit';
 
 import './add-user-form.css';
 import RolesAndHeroes from './roles-heroes';
@@ -95,7 +96,8 @@ class AddUserForm extends React.Component {
                 </div>
                 <RolesAndHeroes/>
                 {error}
-                <button>submit</button>
+                {this.props.loading ? <button disabled>Submit</button> : <button>Submit</button>}
+                {this.props.loading ? <Spinner name="three-bounce" color="white"/> : ''}
             </form>
         );
     } 
@@ -104,7 +106,8 @@ class AddUserForm extends React.Component {
 const mapStateToProps = state => {
     return {
       authToken: state.auth.authToken,
-      errorMessage: state.auth.error
+      errorMessage: state.auth.error,
+      loading: state.players.loading
     }
   }
   
