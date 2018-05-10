@@ -97,7 +97,7 @@ class AddUserForm extends React.Component {
                 <RolesAndHeroes/>
                 {error}
                 {this.props.loading ? <button disabled>Submit</button> : <button>Submit</button>}
-                {this.props.loading ? <Spinner name="three-bounce" color="white"/> : ''}
+                {this.props.loading ? <Spinner name="three-bounce" color="white" fadeIn={'none'}/> : ''}
             </form>
         );
     } 

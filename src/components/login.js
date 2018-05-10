@@ -40,7 +40,7 @@ class Login extends React.Component {
                 </label>
                 {this.props.loading ? <button className="login-button" disabled>Login</button> : <button className="login-button">Login</button>}
               </form>
-              {this.props.loading ? <Spinner name="three-bounce" color="white"/> : ''}
+              {this.props.loading ? <Spinner name="three-bounce" color="white" fadeIn={'none'}/> : ''}
               {error}
               <h3>Don't have an Account? <Link to='/info'>Register</Link></h3>
             </div>
