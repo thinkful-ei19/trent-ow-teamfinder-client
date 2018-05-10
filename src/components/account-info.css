@@ -1,0 +1,15 @@
+.delete-button {
+    background-color: red;
+    margin-top: 20px;
+    border: 1px solid black;
+}
+
+.yes-button {
+    margin-right: 10px;
+}
+
+.delete-box {
+    border: 3px solid red;
+    width: 600px;
+    margin: 20px auto;
+}

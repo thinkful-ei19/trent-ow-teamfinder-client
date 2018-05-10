@@ -65,6 +65,13 @@ export const toggleExpandCard = (player) => {
   };
 };
 
+export const TOGGLE_DELETE_ACCOUNT_MODE = 'TOGGLE_DELETE_ACCOUNT_MODE';
+export const toggleDeleteAccount = () => {
+  return {
+    type: TOGGLE_DELETE_ACCOUNT_MODE
+  };
+};
+
 export const DELETE_PLAYER = 'DELETE_PLAYER';
 export const deletePlayer = (id) => {
   return {

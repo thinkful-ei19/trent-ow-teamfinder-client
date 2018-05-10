@@ -8,7 +8,8 @@ import {
     TOGGLE_EDIT_ACCOUNT_MODE,
     EDIT_ACCOUNT,
     REFRESH_PLAYERS_TAB,
-    POST_PLAYER_REQUEST
+    POST_PLAYER_REQUEST,
+    TOGGLE_DELETE_ACCOUNT_MODE
 } from '../actions/players';
 import { LOG_OUT } from '../actions/auth';
 
@@ -17,7 +18,8 @@ const initialState = {
     loading: false,
     error: null,
     currentExpanded: false,
-    editAccountMode: false
+    editAccountMode: false,
+    deleteAccountMode: false
 }
 
 export const playersReducer = (state = initialState, action) => {
@@ -69,6 +71,19 @@ export const playersReducer = (state = initialState, action) => {
               currentExpanded: false
             }
         }   
+    }
+    else if (action.type === TOGGLE_DELETE_ACCOUNT_MODE){
+        if (!state.deleteAccountMode) {
+            return {
+              ...state,
+              deleteAccountMode : true
+            }
+          } else {
+            return {
+              ...state,
+              deleteAccountMode: false
+              }
+          }   
     }
     else if (action.type === DELETE_PLAYER){
         return {
