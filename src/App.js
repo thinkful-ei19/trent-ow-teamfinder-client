@@ -7,11 +7,13 @@ import NavBar from './components/navbar';
 import AccountTab from './components/account-tab';
 import Copyright from './components/copyright-info';
 import InfoModal from './components/info-modal';
+import LandingPage from './components/landing-page';
 
 class App extends Component {
   render() {
     return (
       <div className="App">
+        <Route exact path='/landing' component={LandingPage} />
         <Route path='/view' component={NavBar}/>
         <Route exact path='/' component={Login} />
         <Route exact path='/info'  render={(props) => <InfoModal {...props} link={'/register'}/>}/>

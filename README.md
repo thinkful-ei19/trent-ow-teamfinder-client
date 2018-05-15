@@ -26,6 +26,7 @@ The main goal of Overwatch Team finder is to create a small community of players
 * An Account tab to allow users to edit their information or delete their account
 * A messaging system to allow users to contact other players
 * Players are filtered by role and sorted by skill rating.
+* Persistance when logged in.
 
 
 ## Ambitious Extensions of MVP

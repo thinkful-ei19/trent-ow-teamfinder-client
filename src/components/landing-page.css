@@ -1,0 +1,24 @@
+.landing-page .background-img {
+    width: 100vw;
+    height: 100vh;
+    background-image: 
+      linear-gradient(
+        rgba(0, 0, 0, 0.7),
+        rgba(0, 0, 0, 0.7)
+      ),
+      url("/overwatch-imgs/landing-image.png");
+      background-repeat: no-repeat;
+      background-size: 100vw 100vh;
+}
+
+.background-img h1 {
+    font-weight: 900;
+    color: white;
+    margin: 0;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    font-size: 2rem;
+    transform: translate(-50%, -50%);
+  }
+
