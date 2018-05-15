@@ -13,3 +13,10 @@
     width: 600px;
     margin: 20px auto;
 }
+
+@media only screen and (max-width: 650px) {
+    .delete-box {
+        width: 100%;
+    }
+}
+
