@@ -1,6 +1,6 @@
 .landing-page .background-img {
     width: 100vw;
-    height: 100vh;
+    height: 95vh;
     background-image: 
       linear-gradient(
         rgba(0, 0, 0, 0.7),
@@ -11,14 +11,48 @@
       background-size: 100vw 100vh;
 }
 
-.background-img h1 {
+/* .header-text h1 {
     font-weight: 900;
-    color: white;
     margin: 0;
-    position: absolute;
+    position: absolute; 
     top: 50%;
     left: 50%;
     font-size: 2rem;
     transform: translate(-50%, -50%);
+  } */
+
+  .header-text {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    color: white;
+    text-align: center;
+    width:100vw;
+  }
+  .header-text p {
+      font-size: 1.3em;
   }
 
+
+.topnav.landing-nav {
+    margin-bottom: 0;
+}
+
+.landing-button {
+    background-color: rgba(238,159,58,0.5);
+    padding: 10px;
+    border: 3px solid #EE9F3A;
+    color: white;
+    margin-top: 40px;
+}
+
+.feature-desc {
+    height: 50vh;
+    background: 
+      linear-gradient(
+        rgba(0, 0, 0, 0.2),
+        rgba(0, 0, 0, 0.2)
+      ),
+      #fff;
+}

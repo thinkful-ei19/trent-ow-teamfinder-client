@@ -13,7 +13,7 @@ class App extends Component {
   render() {
     return (
       <div className="App">
-        <Route exact path='/landing' component={LandingPage} />
+        <Route exact path='/' component={LandingPage} />
         <Route path='/view' component={NavBar}/>
         <Route exact path='/login' component={Login} />
         <Route exact path='/info'  render={(props) => <InfoModal {...props} link={'/register'}/>}/>
