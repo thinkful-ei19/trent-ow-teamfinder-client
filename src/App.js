@@ -15,7 +15,7 @@ class App extends Component {
       <div className="App">
         <Route exact path='/landing' component={LandingPage} />
         <Route path='/view' component={NavBar}/>
-        <Route exact path='/' component={Login} />
+        <Route exact path='/login' component={Login} />
         <Route exact path='/info'  render={(props) => <InfoModal {...props} link={'/register'}/>}/>
         <Route exact path='/register' component={AddUserForm}/>
         <Route exact path='/view/info' render={(props) => <InfoModal {...props} shouldKick={true} link={'/view/players'}/>}/>
