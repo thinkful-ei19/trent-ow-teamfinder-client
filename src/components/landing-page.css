@@ -48,11 +48,36 @@
 }
 
 .feature-desc {
-    height: 50vh;
+    height: 350px;
     background: 
       linear-gradient(
         rgba(0, 0, 0, 0.2),
         rgba(0, 0, 0, 0.2)
       ),
       #fff;
+}
+
+.feature-text {
+    width: 500px;
+    margin-top: 20px;
+    text-align:center;
+}
+.feature-text h2 {
+    font-size: 1.8em;
+}
+.feature-text p {
+    font-size: 1.1em;
+}
+
+.feature-wrapper {
+    width: 1000px;
+    margin: 0 auto;
+    color:black;
+}
+
+.feature-desc img {
+    width: 400px;
+    height: 250px;
+    margin: 50px 0 0 auto;
+    border: 1px solid white;
 }
