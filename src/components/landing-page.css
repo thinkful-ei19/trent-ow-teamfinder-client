@@ -47,6 +47,10 @@
     margin-top: 40px;
 }
 
+.landing-button:hover {
+    background-color: #EE9F3A;
+}
+
 .feature-desc {
     height: 350px;
     background: 
@@ -55,6 +59,7 @@
         rgba(0, 0, 0, 0.2)
       ),
       #fff;
+    border-top: 1px solid white;
 }
 
 .feature-text {
@@ -70,7 +75,8 @@
 }
 
 .feature-wrapper {
-    width: 1000px;
+    max-width: 1000px;
+    width:100%;
     margin: 0 auto;
     color:black;
 }
@@ -81,3 +87,24 @@
     margin: 50px 0 0 auto;
     border: 1px solid white;
 }
+
+@media only screen and (max-width: 900px) {
+    .feature-desc img {
+        margin:0;
+    }
+
+    .feature-text {
+        padding: 0 10px;
+    }
+
+    .feature-desc {
+        height: 700px;
+    }
+  }
+
+
+@media only screen and (max-width: 400px) {
+    .feature-desc img {
+        width: 100%;
+    }
+  }

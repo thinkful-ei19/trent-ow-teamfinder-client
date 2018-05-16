@@ -39,10 +39,11 @@ class LandingPage extends React.Component {
                             <p>Tired of joining competitive matches to find that nobody from your team is in 
                                 the voice channel? At Overwatch TeamBuilder, we strive to 
                                 improve your gaming experience by providing a tool to network with other players and find teammates
-                                who actually want to strategize. To get started click on the Sign Up button above to create
+                                who actually want to strategize.</p> 
+                                <p>To get started click on the Sign Up button above to create
                                 a player card to showcase your own strengths and abilities. DPS player looking for a Support main?
-                                Browse other peoples player cards to find the teammate of your dreams!
-                            </p>
+                                Browse other peoples player cards to find the teammate of your dreams!</p>
+                            
                         </div>
                         <img src="/overwatch-imgs/players-tab.png" alt="player tab screenshot"/>
                     </div>
