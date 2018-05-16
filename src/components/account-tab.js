@@ -25,6 +25,7 @@ class AccountTab extends React.Component {
         },{});
         return {
           skillRating: currentUser.skillRating,
+          email: currentUser.email,
           ...roles,
           ...heroes
         }

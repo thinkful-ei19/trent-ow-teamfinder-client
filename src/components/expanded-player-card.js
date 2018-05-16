@@ -22,6 +22,7 @@ export default function ExpandedPlayerCard(props) {
           <button className="minimize-button" onClick={() => props.onClick(props)}>X</button>
           <h1>{props.currentUser.username}</h1>
           <h2> Skill Rating: {props.currentUser.skillRating}</h2>
+          <p>Email: {props.currentUser.email}</p>
           Roles:  
           <div className="container expanded-container">
              {roles}

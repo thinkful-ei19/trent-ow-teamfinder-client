@@ -17,7 +17,8 @@ class EditAccountForm extends React.Component {
       return {
           skillRating: valueObj.skillRating,
           roles,
-          heroPool
+          heroPool,
+          email: valueObj.email
       }
     }
 
@@ -56,7 +57,10 @@ class EditAccountForm extends React.Component {
                 <h1>Edit your Profile</h1>
                 <label>SR: 
                     <Field id="edit-skill-rating" component='input' type='number' min="0" max="5000" name='skillRating'/>
-                </label><br/>
+                </label>
+                <label className="email">Email: 
+                        <Field className="add-form-inputs" component='input' type='email' name='email' required/>
+                    </label><br/>
                 <RolesAndHeroes/>
                 <button>submit</button>
             </form>

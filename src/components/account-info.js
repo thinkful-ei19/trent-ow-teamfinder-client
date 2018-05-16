@@ -40,6 +40,7 @@ export default function AccountInfo(props) {
         <li key={props.currentUser.id} className="card expanded">
             <h1>{props.currentUser.username}</h1>
             <h2> Skill Rating: {props.currentUser.skillRating}</h2>
+            <p>Email: {props.currentUser.email}</p>
             Roles:  
             <div className="container expanded-container">
                {roles}

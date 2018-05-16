@@ -21,7 +21,7 @@ class LandingPage extends React.Component {
                         <div className={this.props.isDisplayed ? "navbar-items nav-right navbar-toggle-show" : "navbar-items nav-right"}>
                             <Link onClick={() => this.props.dispatch(hideDisplayNav())} to='/register'>Sign Up</Link>
                             <Link to='/login' 
-                                onClick={() => this.props.dispatch(hideDisplayNav())}>Sign in</Link>
+                                onClick={() => this.props.dispatch(hideDisplayNav())}>Sign In</Link>
                         </div>
                     </nav>
                     <div className="background-img">
@@ -36,13 +36,13 @@ class LandingPage extends React.Component {
                     <div className="container feature-wrapper">
                         <div className="feature-text">
                             <h2>Network with other players</h2>
-                            <p>Tired of joining competitive matches to find that nobody from your team is in 
+                            <p>Tired of joining competitive matches where nobody from your team is in 
                                 the voice channel? At Overwatch TeamBuilder, we strive to 
-                                improve your gaming experience by providing a tool to network with other players and find teammates
+                                improve your gaming experience by providing a networking tool to help you find teammates
                                 who actually want to strategize.</p> 
                                 <p>To get started click on the Sign Up button above to create
                                 a player card to showcase your own strengths and abilities. DPS player looking for a Support main?
-                                Browse other peoples player cards to find the teammate of your dreams!</p>
+                                Browse other people's player cards to find the teammate of your dreams!</p>
                             
                         </div>
                         <img src="/overwatch-imgs/players-tab.png" alt="player tab screenshot"/>

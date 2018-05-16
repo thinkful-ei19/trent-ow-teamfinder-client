@@ -22,6 +22,7 @@ class AddUserForm extends React.Component {
           username : valueObj.username,
           skillRating: valueObj.skillRating,
           password: valueObj.password,
+          email: valueObj.email,
           roles,
           heroPool
       }
@@ -92,6 +93,9 @@ class AddUserForm extends React.Component {
                     </label>
                     <label>Skill Rating: 
                         <Field className="add-form-inputs" component='input' type='number' max="5000" min="0" required name='skillRating'/>
+                    </label>
+                    <label>Email: 
+                        <Field className="add-form-inputs" component='input' type='email' name='email' required/>
                     </label><br/>
                 </div>
                 <RolesAndHeroes/>

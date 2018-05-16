@@ -42,7 +42,10 @@ class Login extends React.Component {
               </form>
               {this.props.loading ? <Spinner name="three-bounce" color="white" fadeIn={'none'}/> : ''}
               {error}
-              <h3>Don't have an Account? <Link to='/info'>Register</Link></h3>
+              Demo Account:<br/>
+              username: demoUser<br/>
+              password: 123<br/>
+              <h3>Don't have an Account? <Link to='/register'>Register</Link></h3>
             </div>
             
         );
