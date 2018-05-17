@@ -9,7 +9,8 @@ import {
     EDIT_ACCOUNT,
     REFRESH_PLAYERS_TAB,
     POST_PLAYER_REQUEST,
-    TOGGLE_DELETE_ACCOUNT_MODE
+    TOGGLE_DELETE_ACCOUNT_MODE,
+    SET_DEMO_ACCOUNT
 } from '../actions/players';
 import { LOG_OUT } from '../actions/auth';
 
@@ -19,7 +20,8 @@ const initialState = {
     error: null,
     currentExpanded: false,
     editAccountMode: false,
-    deleteAccountMode: false
+    deleteAccountMode: false,
+    demoAccount: false
 }
 
 export const playersReducer = (state = initialState, action) => {
@@ -118,13 +120,21 @@ export const playersReducer = (state = initialState, action) => {
             currentExpanded: false
         }
     }
+    else if (action.type === SET_DEMO_ACCOUNT){
+        return {
+            ...state,
+            demoAccount: true
+        }
+    }
     else if (action.type === LOG_OUT){
         return {
             ...state,
             players: [],
             error: null,
             currentExpanded: false,
-            editAccountMode: false
+            editAccountMode: false,
+            deleteAccountMode: false,
+            demoAccount: false
         }
     }
     return state

@@ -5,7 +5,7 @@ import './expanded-player-card.css';
 import AccountInfo from './account-info';
 import EditAccountForm from './edit-account-form';
 
-import {fetchDeletePlayer, toggleEditAccount, toggleDeleteAccount} from '../actions/players';
+import {fetchDeletePlayer, toggleEditAccount, toggleDeleteAccount, setDemoAccount} from '../actions/players';
 
 class AccountTab extends React.Component {
     componentWillMount() {
@@ -43,6 +43,9 @@ class AccountTab extends React.Component {
     toggleDeleteOnClick() {
         this.props.dispatch(toggleDeleteAccount());
       }
+    setDemoAccount() {
+        this.props.dispatch(setDemoAccount());
+    }
 
     render() {
         let currentDisplay;
@@ -52,6 +55,8 @@ class AccountTab extends React.Component {
           } else {
             currentDisplay = (
                 <AccountInfo currentUser={this.props.currentUser}
+                    demoAccount={this.props.demoAccount}
+                    setDemoAccount={() => this.setDemoAccount()}
                     deleteAccountMode={this.props.deleteAccountMode} 
                     toggleDeleteOnClick={() => this.toggleDeleteOnClick()}
                     deleteOnClick={() => this.deleteOnClick()}
@@ -75,7 +80,8 @@ const mapStateToProps = state => {
       authToken : state.auth.authToken,
       currentUser: state.auth.currentUser,
       editAccountMode: state.players.editAccountMode,
-      deleteAccountMode: state.players.deleteAccountMode
+      deleteAccountMode: state.players.deleteAccountMode,
+      demoAccount: state.players.demoAccount
     }
 }
 

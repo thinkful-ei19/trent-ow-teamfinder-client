@@ -7,14 +7,22 @@ function isDeleteMode(props) {
     return (
         <button className="delete-button" 
                 onClick={() => props.toggleDeleteOnClick()}>Delete Account</button>
+                
     );
   } else {
     return (
         <div className="delete-box">
             <p>Are you sure you want to delete your account?</p>
             <button className="yes-button" 
-                onClick={() => props.deleteOnClick()}>Yes</button> 
+                onClick={() => {
+                    if (props.currentUser.username === 'demoUser') {
+                      return props.setDemoAccount();
+                    } else {
+                      return props.deleteOnClick()
+                    }
+                }}>Yes</button> 
             <button onClick={() => props.toggleDeleteOnClick()}>No</button>
+            {props.demoAccount ? <p>Can't Delete Demo account!</p> : ''}
         </div>
     );
   }

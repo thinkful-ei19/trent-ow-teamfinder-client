@@ -132,6 +132,15 @@ export const refreshPlayersTab = () => {
   };
 };
 
+export const SET_DEMO_ACCOUNT = 'SET_DEMO_ACCOUNT';
+export const setDemoAccount = () => {
+  return {
+    type: SET_DEMO_ACCOUNT
+  };
+};
+
+
+
 
 
 
