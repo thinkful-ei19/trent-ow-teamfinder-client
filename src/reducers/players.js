@@ -90,7 +90,9 @@ export const playersReducer = (state = initialState, action) => {
     else if (action.type === DELETE_PLAYER){
         return {
             ...state,
-            players: []
+            players: [],
+            deleteAccountMode: false,
+            editAccountMode: false
         }
     }
     else if (action.type === TOGGLE_EDIT_ACCOUNT_MODE){
